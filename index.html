@@ -131,7 +131,21 @@
         <div class="mt-8 glass rounded-2xl p-6 md:p-8">
             <div class="mb-6"><label for="adset-selector" class="font-semibold mb-2 block">Alege un Ad Set pentru Simulare:</label><select id="adset-selector" class="w-full bg-gray-900/50 border border-[color:var(--stroke)] rounded-xl px-4 py-3 outline-none focus:border-[color:var(--orange)] transition-colors"><option value="asc_winner">ASC_Ghete-Iarna_V1 (Câștigător Stabil)</option><option value="test_loser">TEST_Hook-Confort_VID (Eșec Clar)</option><option value="rmk_borderline">RMK_14D-ATC_V2 (Caz la Limitâ)</option></select></div>
             <div class="grid lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-1 space-y-4"><h3 class="font-bold text-lg">"Ingredientele" Analizate de AI</h3><div class="meter"><label class="text-sm font-semibold flex justify-between">ROAS vs. Target <span id="roas-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="roas-bar" class="bg-gradient-to-r from-green-500 to-green-400 h-2.5 rounded-full meter-bar"></div></div></div><div class="meter"><label class="text-sm font-semibold flex justify-between">Stabilitatea Performanței <span id="stability-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="stability-bar" class="bg-gradient-to-r from-blue-500 to-blue-400 h-2.5 rounded-full meter-bar"></div></div></div><div class="meter"><label class="text-sm font-semibold flex justify-between">Eficiența Bugetului <span id="budget-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="budget-bar" class="bg-gradient-to-r from-amber-500 to-amber-400 h-2.5 rounded-full meter-bar"></div></div></div><div class="meter"><label class="text-sm font-semibold flex justify-between">Context Andromeda <span id="context-val" class="text-xs font-mono"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="context-bar" class="bg-gradient-to-r from-orange-500 to-orange-400 h-2.5 rounded-full meter-bar"></div></div></div></div>
+                <div class="lg:col-span-1">
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-lg">"Ingredientele" Analizate de AI</h3>
+                        <div class="meter"><label class="text-sm font-semibold flex justify-between">ROAS vs. Target <span id="roas-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="roas-bar" class="bg-gradient-to-r from-green-500 to-green-400 h-2.5 rounded-full meter-bar"></div></div></div>
+                        <div class="meter"><label class="text-sm font-semibold flex justify-between">Stabilitatea Performanței <span id="stability-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="stability-bar" class="bg-gradient-to-r from-blue-500 to-blue-400 h-2.5 rounded-full meter-bar"></div></div></div>
+                        <div class="meter"><label class="text-sm font-semibold flex justify-between">Eficiența Bugetului <span id="budget-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="budget-bar" class="bg-gradient-to-r from-amber-500 to-amber-400 h-2.5 rounded-full meter-bar"></div></div></div>
+                        <div class="meter"><label class="text-sm font-semibold flex justify-between">Context Andromeda <span id="context-val" class="text-xs font-mono"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="context-bar" class="bg-gradient-to-r from-orange-500 to-orange-400 h-2.5 rounded-full meter-bar"></div></div></div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-[color:var(--stroke)]">
+                        <label class="text-sm font-semibold flex justify-between">Scor de Încredere <span id="confidence-val" class="font-bold text-lg">0%</span></label>
+                        <div class="w-full bg-gray-700 rounded-full h-4 mt-2 relative">
+                            <div id="confidence-bar" class="bg-gradient-to-r from-purple-500 to-purple-400 h-4 rounded-full meter-bar flex items-center justify-center text-xs font-bold text-white" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
                 <div class="lg:col-span-2"><h3 class="font-bold text-lg">Rezultatul Analizei: Recomandare Completă</h3><div id="recommendation-output" class="mt-4 space-y-3 animate-fadeIn"></div></div>
             </div>
         </div>
@@ -178,6 +192,34 @@
     <section id="prd-details" class="section-spacing">
         <div class="text-center"><div class="kicker text-sm">ANEXĂ</div><h2 class="text-3xl md:text-4xl title mt-4">Detalii din Product Requirements Document</h2><p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Mai jos se regăsesc secțiunile cheie din PRD-ul formal, care stau la baza viziunii și funcționalităților prezentate mai sus.</p></div>
         <div class="mt-8"><h3 class="text-2xl font-bold text-center mb-6">Audiența Țintă</h3><div class="grid md:grid-cols-2 gap-8"><div class="glass rounded-xl p-6"><h4 class="font-bold text-lg">👩‍💼 Mara, E-commerce Owner</h4><p class="text-sm text-[color:var(--muted)] mt-1">Rulează 3-5 conturi, cu un spend de 5 cifre lunar. Este focusată pe performanță, dar obosită de multitudinea de decizii zilnice.</p><ul class="mt-4 text-sm list-disc list-inside space-y-1"><li>Nevoie: Un co-pilot AI de încredere.</li><li>Metrica: POAS (Profit over Ad Spend) > 2.5.</li><li>Doleanță: Simulare predictivă ("Ce se întâmplă dacă...?").</li></ul></div><div class="glass rounded-xl p-6"><h4 class="font-bold text-lg">👨‍💻 Alex, Freelancer Ambițios</h4><p class="text-sm text-[color:var(--muted)] mt-1">Gestionează 5-7 conturi de client și vrea să livreze rezultate de expert fără a petrece ore în Ads Manager.</p><ul class="mt-4 text-sm list-disc list-inside space-y-1"><li>Nevoie: Acțiuni clare ("Fă asta").</li><li>Justificare: Motivații simple ("Iată de ce").</li><li>Scop: Creșterea propriei expertize și a încrederii clienților.</li></ul></div></div></div>
+        
+        <!-- NEW SECTIONS INSERTED HERE -->
+        <div class="mt-12">
+            <h3 class="text-2xl font-bold text-center mb-6">Ingineria Deciziilor și Conformitate</h3>
+            <div class="space-y-8">
+                <div class="glass rounded-xl p-6">
+                    <h4 class="font-bold text-lg">4. Calculul Scorului de Încredere (Confidence Score)</h4>
+                    <p class="text-sm text-[color:var(--muted)] mt-1">Pentru a face încrederea un factor calculabil, nu abstract, definim formula:</p>
+                    <div class="mt-4 font-mono text-sm bg-gray-800/50 p-4 rounded-lg">
+                        Confidence = (W_volum × S_stabilitate × A_reguli × C_AI)
+                    </div>
+                    <ul class="mt-4 text-sm list-disc list-inside space-y-1 text-[color:var(--muted)]">
+                        <li>Fiecare factor este normalizat între 0 și 1.</li>
+                        <li>Exemplu: O variație mare a performanței (`S_stabilitate` mic) va reduce încrederea finală, chiar dacă certitudinea AI (`C_AI`) este mare.</li>
+                    </ul>
+                </div>
+                <div class="glass rounded-xl p-6">
+                    <h4 class="font-bold text-lg">5. Clarificarea Acurateței Recomandărilor AI</h4>
+                    <p class="text-sm text-[color:var(--muted)] mt-1">Acuratețea va fi măsurată printr-un audit uman expert, lunar, pe un eșantion de 200 de ad set-uri alese aleatoriu.</p>
+                     <p class="mt-2 text-sm text-[color:var(--muted)]">O decizie este considerată <strong>corectă</strong> dacă se potrivește cu acțiunea umană în limita a ±1 nivel (ex: AI recomandă "Wait", expertul alege "Scale" - este o potrivire. AI recomandă "Kill", expertul alege "Scale" - nu este o potrivire).</p>
+                </div>
+                <div class="glass rounded-xl p-6">
+                    <h4 class="font-bold text-lg">6. Conformitate Legală și a Platformelor</h4>
+                    <p class="text-sm text-[color:var(--muted)] mt-1">Sistemul va respecta cu strictețe toți termenii de utilizare ai API-urilor Meta, politicile de date ale Google/OpenAI și reglementările GDPR privind datele de campanie stocate de utilizatori (incluzând dreptul la ștergere și anonimizare).</p>
+                </div>
+            </div>
+        </div>
+
         <div class="mt-12"><h3 class="text-2xl font-bold text-center mb-6">Metrici de Succes</h3><div class="glass rounded-xl p-6 overflow-x-auto"><table class="w-full text-left"><thead><tr class="border-b border-[color:var(--stroke)]"><th class="p-3 font-semibold">Metrica de Business</th><th class="p-3 font-semibold">Obiectiv</th></tr></thead><tbody><tr><td class="p-3">POAS Uplift</td><td class="p-3 text-[color:var(--green)] font-semibold">+20% în 14 zile de la adopție</td></tr><tr class="border-t border-[color:var(--stroke)]"><td class="p-3">Viteza Decizională</td><td class="p-3">80% din acțiuni luate în 24h de la sync</td></tr><tr class="border-t border-[color:var(--stroke)]"><td class="p-3">Acuratețea Recomandărilor AI</td><td class="p-3">≥ 85% aliniere cu un audit de expert</td></tr></tbody></table></div></div>
         
         <!-- INTERACTIVE ROADMAP -->
@@ -201,6 +243,11 @@
         </div>
     </section>
 
+    <!-- MODAL PENTRU DETALII RECOMANDARE -->
+    <div id="blueprint-modal" class="fixed inset-0 z-50 items-center justify-center p-4 hidden" style="background:rgba(0,0,0,.5); backdrop-filter:blur(4px);">
+        <!-- Content will be injected by JS -->
+    </div>
+
   </main>
   
   <script>
@@ -214,10 +261,13 @@
             budget: { val: document.getElementById('budget-val'), bar: document.getElementById('budget-bar') },
             context: { val: document.getElementById('context-val'), bar: document.getElementById('context-bar') },
         };
+        const confidenceVal = document.getElementById('confidence-val');
+        const confidenceBar = document.getElementById('confidence-bar');
+        
         const simulationData = {
-            asc_winner: { name: "ASC_Ghete-Iarna_V1", ingredients: { roas: { value: 3.9, percent: 95 }, stability: { value: 'Foarte Stabilă', percent: 90 }, budget: { value: 'Eficiență Maximă', percent: 100 }, context: { value: 'ASC', percent: 100 } }, recommendation: { decision: { label: "SCALE", color: "green" }, reason: "Performanță excepțională și stabilă pe 7 zile. ROAS-ul de 3.9x este mult peste target, iar contextul de campanie ASC indică un potențial mare de scalare.", action: "Crește bugetul cu 25% imediat. Monitorizează frecvența pentru a preveni saturarea audienței." } },
-            test_loser: { name: "TEST_Hook-Confort_VID", ingredients: { roas: { value: 0.8, percent: 15 }, stability: { value: 'Instabilă', percent: 30 }, budget: { value: 'Buget Irosit', percent: 100 }, context: { value: 'TEST', percent: 50 } }, recommendation: { decision: { label: "KILL", color: "red" }, reason: "ROAS subunitar (0.8x) după un spend semnificativ (peste 3x CPA target). Contextul de 'TEST' arată că acest unghi creativ a eșuat clar.", action: "Oprește imediat ad set-ul. Arhivează creativul și analizează de ce nu a funcționat înainte de a lansa un nou test." } },
-            rmk_borderline: { name: "RMK_14D-ATC_V2", ingredients: { roas: { value: 2.3, percent: 60 }, stability: { value: 'Fluctuantă', percent: 55 }, budget: { value: 'Date Insuficiente', percent: 40 }, context: { value: 'RMK', percent: 75 } }, recommendation: { decision: { label: "WAIT", color: "amber" }, reason: "ROAS-ul este sub target-ul de 2.5x pentru remarketing, iar performanța este fluctuantă. Bugetul cheltuit este încă prea mic pentru o decizie statistic relevantă.", action: "Lasă ad set-ul să ruleze încă 24-48 de ore pentru a acumula mai multe date. Încrederea este prea mică pentru a acționa acum." } }
+            asc_winner: { name: "ASC_Ghete-Iarna_V1", ingredients: { roas: { value: 3.9, percent: 95 }, stability: { value: 'Foarte Stabilă', percent: 90 }, budget: { value: 'Eficiență Maximă', percent: 100 }, context: { value: 'ASC', percent: 100 } }, confidence: 95, recommendation: { decision: { label: "SCALE", color: "green" }, reason: "Performanță excepțională și stabilă pe 7 zile. ROAS-ul de 3.9x este mult peste target, iar contextul de campanie ASC indică un potențial mare de scalare.", action: "Crește bugetul cu 25% imediat. Monitorizează frecvența pentru a preveni saturarea audienței." } },
+            test_loser: { name: "TEST_Hook-Confort_VID", ingredients: { roas: { value: 0.8, percent: 15 }, stability: { value: 'Instabilă', percent: 30 }, budget: { value: 'Buget Irosit', percent: 100 }, context: { value: 'TEST', percent: 50 } }, confidence: 65, recommendation: { decision: { label: "KILL", color: "red" }, reason: "ROAS subunitar (0.8x) după un spend semnificativ (peste 3x CPA target). Contextul de 'TEST' arată că acest unghi creativ a eșuat clar.", action: "Oprește imediat ad set-ul. Arhivează creativul și analizează de ce nu a funcționat înainte de a lansa un nou test." } },
+            rmk_borderline: { name: "RMK_14D-ATC_V2", ingredients: { roas: { value: 2.3, percent: 60 }, stability: { value: 'Fluctuantă', percent: 55 }, budget: { value: 'Date Insuficiente', percent: 40 }, context: { value: 'RMK', percent: 75 } }, confidence: 48, recommendation: { decision: { label: "WAIT", color: "amber" }, reason: "ROAS-ul este sub target-ul de 2.5x pentru remarketing, iar performanța este fluctuantă. Bugetul cheltuit este încă prea mic pentru o decizie statistic relevantă.", action: "Lasă ad set-ul să ruleze încă 24-48 de ore pentru a acumula mai multe date. Încrederea este prea mică pentru a acționa acum." } }
         };
 
         function updateSimulator(adsetId) {
@@ -228,6 +278,15 @@
                 meters[key].val.textContent = ingredient.value;
                 meters[key].bar.style.width = `${ingredient.percent}%`;
             });
+            
+            // Update confidence
+            if (data.confidence !== undefined) {
+                const confidence = data.confidence;
+                confidenceVal.textContent = `${confidence}%`;
+                confidenceBar.style.width = `${confidence}%`;
+                confidenceBar.textContent = `${confidence}%`;
+            }
+
             const rec = data.recommendation;
             recommendationOutput.innerHTML = `<div class="p-4 bg-gray-800/50 rounded-lg border-l-4 border-[color:var(--${rec.decision.color})]"><div class="font-bold text-sm text-[color:var(--${rec.decision.color})]">A. DECIZIA</div><p class="text-lg font-extrabold">${rec.decision.label}</p></div><div class="p-4 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">B. MOTIVAȚIA</div><p class="text-sm mt-1">${rec.reason}</p></div><div class="p-4 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">C. PLANUL DE ACȚIUNE</div><p class="text-sm mt-1 font-mono">${rec.action}</p></div>`;
             recommendationOutput.classList.remove('animate-fadeIn');
@@ -363,6 +422,8 @@
         const campaignTreeContainer = document.getElementById('campaign-tree');
         const aiStatusIndicator = document.getElementById('ai-status-indicator');
         const aiStatusText = document.getElementById('ai-status-text');
+        const blueprintModal = document.getElementById('blueprint-modal');
+        
         const campaignBlueprintData = [
             { name: 'stvg.CreativeLab – Purchase', type: 'campaign', roas: 1.80, cpa: 75, spend: 1200, children: [
                 { name: 'stvg.ADSET.Broad – Purchase', type: 'adset', children: [
@@ -393,23 +454,41 @@
             ]},
         ];
 
+        let flatBlueprintDataStore = {};
+        function flattenData(items, parentPath = '') {
+            items.forEach((item, index) => {
+                const path = parentPath ? `${parentPath}-${index}` : `${index}`;
+                item.path = path;
+                flatBlueprintDataStore[path] = item;
+                if (item.children) {
+                    flattenData(item.children, path);
+                }
+            });
+        }
+        flattenData(campaignBlueprintData);
+
         function getDecision(item) {
-            if(item.name.includes("Metrou – Adorabile") && item.type === 'ad') return { label: "PROMOVEAZĂ", color: "purple" };
-            if (item.roas > 2.8) return { label: "SCALE", color: "green" };
-            if (item.roas < 1.5) return { label: "KILL", color: "red" };
-            return { label: "WAIT", color: "amber" };
+            let decision = { label: "WAIT", color: "amber", reason: "Performanță medie. Necesită mai multe date pentru o decizie clară.", actionPlan: "Menține bugetul actual. Monitorizează CPA și ROAS în următoarele 48 de ore." };
+            if(item.name.includes("Metrou – Adorabile") && item.type === 'ad') {
+                decision = { label: "PROMOVEAZĂ", color: "purple", reason: "Creativ cu performanță excepțională în Creative Lab (ROAS > 3, CPA sub target).", actionPlan: "Mută acest creativ într-o campanie de scalare (stvg.Main - Scaler) cu un buget inițial de 200 RON/zi." };
+            } else if (item.roas > 2.8) {
+                decision = { label: "SCALE", color: "green", reason: `ROAS de ${item.roas.toFixed(2)}x este profitabil și peste target.`, actionPlan: `Crește bugetul cu 20%. Monitorizează frecvența pentru a evita saturarea.` };
+            } else if (item.roas < 1.5) {
+                decision = { label: "KILL", color: "red", reason: `ROAS subunitar (${item.roas.toFixed(2)}x) și CPA de ${item.cpa} RON. Nu este profitabil.`, actionPlan: "Oprește imediat. Analizează audiența și creativul pentru a înțelege cauza eșecului." };
+            }
+            item.reason = decision.reason;
+            item.actionPlan = decision.actionPlan;
+            return decision;
         }
 
         function renderBlueprintNode(item, level = 0, isEvaluation = false) {
             const itemDiv = document.createElement('div');
             const typeClass = `type-${item.type}`;
             itemDiv.className = `blueprint-item flex justify-between items-center transition-all duration-300 py-2 rounded ${typeClass}`;
-
             const nameSpan = document.createElement('span');
             nameSpan.style.paddingLeft = `${level * 1.5}rem`;
             nameSpan.textContent = item.name.replace(/–/g, '– ');
             itemDiv.appendChild(nameSpan);
-
             const resultsContainer = document.createElement('div');
             resultsContainer.className = 'results-container text-xs';
             itemDiv.appendChild(resultsContainer);
@@ -422,13 +501,11 @@
                     <span class="inline-block w-24 text-right"><span class="text-[color:var(--muted)]">CPA:</span> <span class="font-bold">${item.cpa} RON</span></span>
                     <span class="inline-block w-28 text-right"><span class="text-[color:var(--muted)]">Spend:</span> <span class="font-bold">${item.spend} RON</span></span>
                     <span class="inline-block w-28 text-right">
-                        <span class="ml-4 text-xs font-bold py-1 px-2 rounded-full text-white" style="background-color: var(--${decision.color})">${decision.label}</span>
+                        <button data-path="${item.path}" class="blueprint-details-btn ml-4 text-xs font-bold py-1 px-2 rounded-full text-white cursor-pointer" style="background-color: var(--${decision.color})">${decision.label}</button>
                     </span>
                 `;
             }
-
             campaignTreeContainer.appendChild(itemDiv);
-
             if (item.children) {
                 item.children.forEach(child => renderBlueprintNode(child, level + 1, isEvaluation));
             }
@@ -446,22 +523,16 @@
             evaluateBtn.disabled = true;
             campaignTreeContainer.innerHTML = '';
             campaignBlueprintData.forEach(campaign => renderBlueprintNode(campaign, 0, true));
-            
             aiStatusText.textContent = 'Analizez...';
             aiStatusIndicator.style.backgroundColor = 'var(--amber)';
             aiStatusIndicator.classList.add('animate-pulse');
-
             const items = campaignTreeContainer.querySelectorAll('.blueprint-item');
             items.forEach((item, index) => {
                 setTimeout(() => {
                    item.classList.add('scanning');
                    const result = item.querySelector('.results-container');
-                   if (result) {
-                       result.classList.remove('opacity-0');
-                       result.classList.add('opacity-100');
-                   }
+                   if (result) { result.classList.remove('opacity-0'); result.classList.add('opacity-100'); }
                    setTimeout(() => item.classList.remove('scanning'), 400);
-
                    if(index === items.length - 1) {
                         aiStatusText.textContent = 'Analiză Completă';
                         aiStatusIndicator.style.backgroundColor = 'var(--green)';
@@ -472,10 +543,44 @@
             });
         });
         
+        campaignTreeContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('.blueprint-details-btn');
+            if (!btn) return;
+            const item = flatBlueprintDataStore[btn.dataset.path];
+            if (item) {
+                const decision = getDecision(item);
+                blueprintModal.innerHTML = `
+                <div class="glass rounded-2xl w-full max-w-lg p-6 relative animate-fadeIn">
+                    <button id="close-blueprint-modal" class="absolute top-4 right-4 text-2xl text-[color:var(--muted)] hover:text-white">&times;</button>
+                    <h3 class="text-xl font-bold mb-1">${item.name}</h3>
+                    <div class="mt-6 space-y-4">
+                        <div class="p-4 bg-gray-800/50 rounded-lg border-l-4" style="border-color: var(--${decision.color})">
+                            <div class="font-bold text-sm" style="color: var(--${decision.color})">DECIZIA</div>
+                            <p class="text-lg font-extrabold">${decision.label}</p>
+                        </div>
+                        <div class="p-4 bg-gray-800/50 rounded-lg">
+                            <div class="font-bold text-sm text-[color:var(--muted)]">MOTIVAȚIA (Reason)</div>
+                            <p class="text-sm mt-1">${item.reason}</p>
+                        </div>
+                        <div class="p-4 bg-gray-800/50 rounded-lg">
+                            <div class="font-bold text-sm text-[color:var(--muted)]">PLAN DE ACȚIUNE</div>
+                            <p class="text-sm mt-1 font-mono">${item.actionPlan}</p>
+                        </div>
+                    </div>
+                </div>`;
+                blueprintModal.classList.remove('hidden');
+                blueprintModal.classList.add('flex');
+                document.getElementById('close-blueprint-modal').addEventListener('click', () => {
+                    blueprintModal.classList.add('hidden');
+                    blueprintModal.classList.remove('flex');
+                });
+            }
+        });
+        blueprintModal.addEventListener('click', (e) => { if (e.target === blueprintModal) { blueprintModal.classList.add('hidden'); blueprintModal.classList.remove('flex'); } });
+        
         displayInitialBlueprint();
     });
   </script>
 </body>
 </html>
-
 
