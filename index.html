@@ -1,344 +1,481 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infographic: Andromeda Ad Account Structure</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
-        }
-         @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ROASIN — Documentație Completă și Interactivă v2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0B0F14; --panel:#0f151d; --glass:rgba(17, 24, 39, 0.7); --stroke:rgba(43, 56, 71, 0.8); --text:#E6EDF6; --muted:#9AA8B5;
+      --orange:#FF6A3D; --orange-hover:#ff5a26; --green:#12b76a; --amber:#f59e0b; --red:#ef4444; --blue:#3b82f6; --purple:#8b5cf6;
+    }
+    body{
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto; color:var(--text);
+      background:radial-gradient(1200px 800px at 100% -10%, rgba(255,106,61,.08), transparent 55%),
+                 radial-gradient(1000px 700px at -10% 120%, rgba(255,106,61,.06), transparent 55%), var(--bg);
+    }
+    .glass{background:var(--glass); border:1px solid var(--stroke); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .title{font-weight:900; letter-spacing:-.02em}
+    .kicker{font-weight: 800; letter-spacing: 0.1em; color: var(--orange); text-transform: uppercase;}
+    .section-spacing { margin-top: 6rem; }
+    .highlight{ background: linear-gradient(to right, var(--orange), var(--orange-hover)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;}
+    
+    .meter-bar, .rules-bar { transition: width 0.5s ease-out; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fadeIn { animation: fadeIn 0.5s ease-out forwards; }
+
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .loader {
+        border: 2px solid var(--stroke);
+        border-top-color: var(--orange);
+        animation: spin 1s linear infinite;
+    }
+
+    input[type=range] { -webkit-appearance: none; background: transparent; width: 100%;}
+    input[type=range]:focus { outline: none; }
+    input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: var(--stroke); border-radius: 3px; }
+    input[type=range]::-webkit-slider-thumb { height: 18px; width: 18px; border-radius: 50%; background: var(--orange); cursor: pointer; -webkit-appearance: none; margin-top: -6px; box-shadow: 0 0 5px rgba(255,106,61,.5); }
+    input[type=range]::-moz-range-track { width: 100%; height: 6px; cursor: pointer; background: var(--stroke); border-radius: 3px; }
+    input[type=range]::-moz-range-thumb { height: 18px; width: 18px; border-radius: 50%; background: var(--orange); cursor: pointer; border:none; box-shadow: 0 0 5px rgba(255,106,61,.5); }
+    .timeline-item.active { background-color: var(--orange); color: white; }
+    .timeline-item { transition: all 0.2s ease-in-out; }
+    .btn-primary{background:linear-gradient(180deg, var(--orange), var(--orange-hover)); border-color:transparent; color:white; transition: all 0.2s ease-in-out; }
+    .btn-primary:hover{transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255,106,61,.2);}
+    .btn-primary:disabled { background: var(--stroke); color: var(--muted); cursor: not-allowed; transform: none; box-shadow: none; }
+    
+    /* New styles for blueprint structure */
+    .blueprint-item.scanning { background-color: rgba(255, 106, 61, 0.1); }
+    .type-campaign {
+        font-weight: bold;
+        color: white;
+        padding-top: 0.75rem;
+        padding-bottom: 0.25rem;
+        border-top: 1px solid var(--stroke);
+    }
+    .type-campaign:first-child {
+        padding-top: 0;
+        border-top: none;
+    }
+     .type-adset {
+        color: var(--muted);
+    }
+    .type-ad {
+        color: var(--text);
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="transition-all duration-300">
+  
+  <main class="max-w-5xl mx-auto p-4 sm:p-6 md:p-8">
 
-    <div class="container mx-auto p-4 md:p-8">
+    <!-- INTRODUCERE -->
+    <section id="intro" class="text-center">
+        <div class="kicker text-sm">VIZIUNEA ROASIN</div>
+        <h1 class="text-4xl md:text-6xl title mt-4">De la Date la Decizie. Instantaneu.</h1>
+        <p class="mt-6 text-lg text-[color:var(--muted)] max-w-3xl mx-auto">Bun venit la documentația completă a ROASIN. Această pagină combină o <span class="text-white">explicație interactivă</span> a conceptelor cheie cu <span class="text-white">detaliile complete</span> din Product Requirements Document (PRD) pentru a oferi o imagine de ansamblu completă a produsului.</p>
+    </section>
 
-        <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold text-[#00449E] mb-2">"Andromeda" Ad Account Structure</h1>
-            <p class="text-lg md:text-xl text-[#005BC5]">A Visual Guide to Profitable Scaling at 7000 lei/day</p>
-        </header>
-
-        <section class="bg-white rounded-lg shadow-md p-6 mb-12">
-            <h2 class="text-2xl font-bold text-center text-[#00449E] mb-6">Overall Budget Distribution</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <div class="chart-container">
-                    <canvas id="budgetSplitChart"></canvas>
+    <!-- ANDROMEDA FRAMEWORK -->
+    <section id="andromeda" class="section-spacing">
+        <div class="text-center">
+            <div class="kicker text-sm">STRATEGIA (UPDATE-UL ANDROMEDA)</div>
+            <h2 class="text-3xl md:text-4xl title mt-4">Noul Model de Scalare: Andromeda</h2>
+            <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Andromeda este o filozofie de management care prioritizează testarea creativă și scalarea prin Advantage+ Shopping (ASC). ROASIN este construit pentru a automatiza și optimiza acest flux.</p>
+        </div>
+        <div class="mt-8 glass rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-center">Fluxul de Performanță Andromeda</h3>
+            <div class="mt-6 flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-6 text-center">
+                <div class="glass rounded-xl p-6 border-l-4 border-[color:var(--amber)] flex-1"><div class="text-2xl">🧪</div><h4 class="font-bold mt-2">1. Creative Lab (TEST)</h4><p class="text-sm text-[color:var(--muted)] mt-1">Campanii manuale, cu buget redus, unde se testează constant noi unghiuri creative, formate și mesaje.</p></div>
+                <div class="text-3xl font-thin text-[color:var(--muted)] transform md:-translate-y-4"><span class="block md:hidden">↓</span> <span class="hidden md:block">→</span><div class="text-sm font-bold">Promovăm Câștigătorii</div></div>
+                <div class="glass rounded-xl p-6 border-l-4 border-[color:var(--green)] flex-1"><div class="text-2xl">🚀</div><h4 class="font-bold mt-2">2. Core Scaling (ASC)</h4><p class="text-sm text-[color:var(--muted)] mt-1">Creativele validate în "Lab" sunt mutate în campanii Advantage+ Shopping, unde AI-ul Meta le scalează la potențial maxim.</p></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- BLUEPRINT ANDROMEDA -->
+    <section id="andromeda-blueprint" class="section-spacing">
+        <div class="text-center">
+             <div class="kicker text-sm">EXEMPLU PRACTIC</div>
+            <h2 class="text-3xl md:text-4xl title mt-4">Blueprint-ul Andromeda: AI în Acțiune</h2>
+             <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Mai jos este o reprezentare vizuală a unei structuri de cont Andromeda. Apasă pe buton pentru a simula cum AI Assistant-ul ROASIN evaluează fiecare element și oferă recomandări clare, bazate pe performanță.</p>
+        </div>
+        <div class="mt-8 glass rounded-2xl p-6 md:p-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+                 <div id="ai-status-container" class="flex items-center gap-2 text-sm font-semibold text-[color:var(--muted)]">
+                    <span id="ai-status-indicator" class="w-3 h-3 rounded-full bg-gray-500 transition-colors"></span>
+                    <span id="ai-status-text">În așteptare</span>
                 </div>
-                <div class="text-left">
-                    <p class="text-lg mb-4">The core philosophy of aggressive scaling is to focus resources on constantly attracting new customers. A healthy allocation prioritizes growth while reserving an essential part of the budget to maximize conversions from already "warmed-up" audiences.</p>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <div class="w-4 h-4 rounded-full mr-3 bg-[#005BC5]"></div>
-                            <div>
-                                <h3 class="font-bold text-xl">85% Prospecting (5950 lei)</h3>
-                                <p class="text-gray-600">The growth engine, dedicated to finding new customers.</p>
-                            </div>
+                <button id="evaluate-btn" class="btn-primary font-bold py-3 px-6 rounded-full flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 01-9.204 2.153a.75.75 0 00-1.06-1.06l-2.475 2.475a.75.75 0 000 1.06l2.475 2.475a.75.75 0 001.06-1.06l-1.09-1.09A7 7 0 0016.95 13.5a.75.75 0 00-1.06-1.06l-1.09 1.09a5.5 5.5 0 01-2.153-2.105l4.28-4.28a.75.75 0 10-1.06-1.06l-4.28 4.28zM5.78 4.22a.75.75 0 00-1.06 1.06l1.09 1.09A5.5 5.5 0 003.05 8.5a.75.75 0 001.06 1.06l1.09-1.09a7 7 0 0110.665-3.535.75.75 0 001.06-1.06l2.475-2.475a.75.75 0 00-1.06-1.06L16.4 3.175a.75.75 0 00-1.06 1.06l1.09 1.09a5.5 5.5 0 00-9.514-1.106L5.78 4.22z" clip-rule="evenodd" /></svg>
+                    Evaluează Performanța
+                </button>
+            </div>
+            <div id="campaign-tree" class="font-mono text-sm space-y-1 bg-gray-900/50 p-4 rounded-lg">
+                <!-- JS will populate this -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMULATORUL DE DECIZIE -->
+    <section id="simulator" class="section-spacing">
+        <div class="text-center">
+            <div class="kicker text-sm">MOTORUL ROASIN ÎN ACȚIUNE</div>
+            <h2 class="text-3xl md:text-4xl title mt-4">Simulatorul de Decizie Interactiv</h2>
+            <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Selectează un ad set de mai jos pentru a vedea exact cum îl analizează motorul ROASIN. Observă cum se schimbă "ingredientele" AI-ului și recomandarea finală.</p>
+        </div>
+        <div class="mt-8 glass rounded-2xl p-6 md:p-8">
+            <div class="mb-6"><label for="adset-selector" class="font-semibold mb-2 block">Alege un Ad Set pentru Simulare:</label><select id="adset-selector" class="w-full bg-gray-900/50 border border-[color:var(--stroke)] rounded-xl px-4 py-3 outline-none focus:border-[color:var(--orange)] transition-colors"><option value="asc_winner">ASC_Ghete-Iarna_V1 (Câștigător Stabil)</option><option value="test_loser">TEST_Hook-Confort_VID (Eșec Clar)</option><option value="rmk_borderline">RMK_14D-ATC_V2 (Caz la Limitâ)</option></select></div>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 space-y-4"><h3 class="font-bold text-lg">"Ingredientele" Analizate de AI</h3><div class="meter"><label class="text-sm font-semibold flex justify-between">ROAS vs. Target <span id="roas-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="roas-bar" class="bg-gradient-to-r from-green-500 to-green-400 h-2.5 rounded-full meter-bar"></div></div></div><div class="meter"><label class="text-sm font-semibold flex justify-between">Stabilitatea Performanței <span id="stability-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="stability-bar" class="bg-gradient-to-r from-blue-500 to-blue-400 h-2.5 rounded-full meter-bar"></div></div></div><div class="meter"><label class="text-sm font-semibold flex justify-between">Eficiența Bugetului <span id="budget-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="budget-bar" class="bg-gradient-to-r from-amber-500 to-amber-400 h-2.5 rounded-full meter-bar"></div></div></div><div class="meter"><label class="text-sm font-semibold flex justify-between">Context Andromeda <span id="context-val" class="text-xs font-mono"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="context-bar" class="bg-gradient-to-r from-orange-500 to-orange-400 h-2.5 rounded-full meter-bar"></div></div></div></div>
+                <div class="lg:col-span-2"><h3 class="font-bold text-lg">Rezultatul Analizei: Recomandare Completă</h3><div id="recommendation-output" class="mt-4 space-y-3 animate-fadeIn"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVANCED FEATURES SECTION -->
+    <section id="advanced-features" class="section-spacing">
+        <div class="text-center">
+             <div class="kicker text-sm">FUNCȚIONALITĂȚI AVANSATE</div>
+            <h2 class="text-3xl md:text-4xl title mt-4">Personalizare și Inteligență Creativă</h2>
+            <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">ROASIN merge dincolo de simple recomandări. Îți permite să personalizezi motorul de reguli și folosește contextul pentru a oferi sugestii creative valoroase.</p>
+        </div>
+        <div class="mt-8 glass rounded-2xl p-6 md:p-8">
+            <h3 class="font-bold text-xl mb-2">Motorul de Reguli Personalizabil</h3>
+            <p class="text-[color:var(--muted)] text-sm mb-6">Setează-ți propriile praguri de performanță. Motorul va folosi aceste reguli pentru a-ți oferi o imagine de ansamblu instantanee asupra sănătății contului, înainte ca AI-ul să intervină pentru cazurile complexe.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <div class="mb-4"><label class="font-semibold flex justify-between">ROAS Țintă <span id="target-roas-label" class="text-[color:var(--orange)]"></span></label><input type="range" id="target-roas-slider" min="1.0" max="100.0" value="2.5" step="0.5"></div>
+                    <div><label class="font-semibold flex justify-between">CPA Maxim Acceptat <span id="max-cpa-label" class="text-[color:var(--orange)]"></span></label><input type="range" id="max-cpa-slider" min="10" max="100" value="40" step="1"></div>
+                </div>
+                <div class="bg-gray-800/50 p-4 rounded-lg"><h4 class="font-semibold text-sm mb-2">Evaluare Campanii (Live)</h4><div id="rules-evaluation-output" class="space-y-2 text-sm"></div></div>
+            </div>
+        </div>
+        <div class="mt-8 glass rounded-2xl p-6 md:p-8">
+            <h3 class="font-bold text-xl mb-2">Generator de Recomandări Creative cu Gemini AI</h3>
+            <p class="text-[color:var(--muted)] text-sm mb-6">Introdu numele unui ad și apasă butonul. ROASIN extrage contextul și cheamă API-ul Gemini pentru a genera instantaneu propuneri creative unice.</p>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div>
+                    <label for="creative-name-input" class="font-semibold mb-2 block">Nume Ad (ex: TEST_Ghete-Piele_Hook-Durabilitate_VID)</label>
+                    <input id="creative-name-input" class="w-full bg-transparent border border-[color:var(--stroke)] rounded-xl px-4 py-3 outline-none focus:border-[color:var(--orange)] transition-colors" value="TEST_Ghete-Piele_Hook-Durabilitate_VID">
+                    <button id="generate-creative-btn" class="btn-primary font-bold py-2 px-4 rounded-full flex items-center gap-2 mt-4">
+                        ✨ Generează Recomandări AI
+                    </button>
+                    <pre id="creative-context-output" class="mt-4 text-xs p-3 rounded-lg bg-gray-800/50"></pre>
+                </div>
+                <div id="creative-recommendations-output" class="space-y-3 animate-fadeIn min-h-[200px]">
+                    <!-- Gemini response here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRD DETAILS -->
+    <section id="prd-details" class="section-spacing">
+        <div class="text-center"><div class="kicker text-sm">ANEXĂ</div><h2 class="text-3xl md:text-4xl title mt-4">Detalii din Product Requirements Document</h2><p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Mai jos se regăsesc secțiunile cheie din PRD-ul formal, care stau la baza viziunii și funcționalităților prezentate mai sus.</p></div>
+        <div class="mt-8"><h3 class="text-2xl font-bold text-center mb-6">Audiența Țintă</h3><div class="grid md:grid-cols-2 gap-8"><div class="glass rounded-xl p-6"><h4 class="font-bold text-lg">👩‍💼 Mara, E-commerce Owner</h4><p class="text-sm text-[color:var(--muted)] mt-1">Rulează 3-5 conturi, cu un spend de 5 cifre lunar. Este focusată pe performanță, dar obosită de multitudinea de decizii zilnice.</p><ul class="mt-4 text-sm list-disc list-inside space-y-1"><li>Nevoie: Un co-pilot AI de încredere.</li><li>Metrica: POAS (Profit over Ad Spend) > 2.5.</li><li>Doleanță: Simulare predictivă ("Ce se întâmplă dacă...?").</li></ul></div><div class="glass rounded-xl p-6"><h4 class="font-bold text-lg">👨‍💻 Alex, Freelancer Ambițios</h4><p class="text-sm text-[color:var(--muted)] mt-1">Gestionează 5-7 conturi de client și vrea să livreze rezultate de expert fără a petrece ore în Ads Manager.</p><ul class="mt-4 text-sm list-disc list-inside space-y-1"><li>Nevoie: Acțiuni clare ("Fă asta").</li><li>Justificare: Motivații simple ("Iată de ce").</li><li>Scop: Creșterea propriei expertize și a încrederii clienților.</li></ul></div></div></div>
+        <div class="mt-12"><h3 class="text-2xl font-bold text-center mb-6">Metrici de Succes</h3><div class="glass rounded-xl p-6 overflow-x-auto"><table class="w-full text-left"><thead><tr class="border-b border-[color:var(--stroke)]"><th class="p-3 font-semibold">Metrica de Business</th><th class="p-3 font-semibold">Obiectiv</th></tr></thead><tbody><tr><td class="p-3">POAS Uplift</td><td class="p-3 text-[color:var(--green)] font-semibold">+20% în 14 zile de la adopție</td></tr><tr class="border-t border-[color:var(--stroke)]"><td class="p-3">Viteza Decizională</td><td class="p-3">80% din acțiuni luate în 24h de la sync</td></tr><tr class="border-t border-[color:var(--stroke)]"><td class="p-3">Acuratețea Recomandărilor AI</td><td class="p-3">≥ 85% aliniere cu un audit de expert</td></tr></tbody></table></div></div>
+        
+        <!-- INTERACTIVE ROADMAP -->
+        <div class="mt-12">
+            <h3 class="text-2xl font-bold text-center mb-6">Roadmap Interactiv</h3>
+            <div class="glass rounded-2xl p-6 md:p-8">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="md:col-span-1">
+                        <div id="timeline-nav" class="space-y-2">
+                            <button data-version="v1_1" class="timeline-item w-full text-left font-bold p-3 rounded-lg">V1.1: Acțiuni Automate</button>
+                            <button data-version="v1_2" class="timeline-item w-full text-left font-bold p-3 rounded-lg">V1.2: Custom Rule Builder</button>
+                            <button data-version="v1_3" class="timeline-item w-full text-left font-bold p-3 rounded-lg">V1.3: Simulator de Decizii</button>
+                            <button data-version="v2_0" class="timeline-item w-full text-left font-bold p-3 rounded-lg">V2.0: Suport Multi-Platformă</button>
                         </div>
-                        <div class="flex items-center">
-                            <div class="w-4 h-4 rounded-full mr-3 bg-[#6AAAF5]"></div>
-                            <div>
-                                <h3 class="font-bold text-xl">15% Retargeting (1050 lei)</h3>
-                                <p class="text-gray-600">The safety net for maximizing conversions.</p>
-                            </div>
-                        </div>
+                    </div>
+                    <div id="roadmap-content-display" class="md:col-span-2 bg-gray-800/50 p-6 rounded-lg animate-fadeIn">
+                        <!-- Roadmap content will be injected here -->
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="mb-12">
-            <div class="text-center mb-8">
-                <h2 class="text-3xl font-bold text-[#00449E]">Growth Engines: Scaling & Testing</h2>
-                <p class="text-lg text-gray-600 mt-2">The prospecting budget is strategically divided between proven scaling campaigns and innovation labs.</p>
-            </div>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-2xl font-bold text-[#005BC5] mb-4 text-center">🎯 SCALING (5050 lei)</h3>
-                    <p class="text-center mb-6">These are the main engines running at a large scale, using validated strategies.</p>
-                    <div class="space-y-6">
-                        <div class="border border-gray-200 rounded-lg p-4">
-                            <h4 class="font-bold text-lg flex items-center">🚀 Main Engine (Manuals)</h4>
-                            <p class="text-sm text-gray-500 mb-2">PRO - ASC - Main Scaler</p>
-                            <p>Scales the best manual creatives ("superstars"). Constantly receives winners from the lab.</p>
-                            <p class="font-bold text-2xl text-[#0072F0] mt-2">3550 lei</p>
-                        </div>
-                        <div class="border border-gray-200 rounded-lg p-4">
-                            <h4 class="font-bold text-lg flex items-center">🏬 Volume Engine (Catalog)</h4>
-                            <p class="text-sm text-gray-500 mb-2">PRO - DABA - Catalog All</p>
-                            <p>Ensures coverage for the entire catalog, generating a constant volume of sales.</p>
-                             <p class="font-bold text-2xl text-[#3692F2] mt-2">1500 lei</p>
-                        </div>
-                    </div>
-                    <div class="chart-container mt-8 !h-64">
-                         <canvas id="scalingSplitChart"></canvas>
-                    </div>
-                </div>
+  </main>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- SIMULATOR DE DECIZIE ---
+        const adsetSelector = document.getElementById('adset-selector');
+        const recommendationOutput = document.getElementById('recommendation-output');
+        const meters = {
+            roas: { val: document.getElementById('roas-val'), bar: document.getElementById('roas-bar') },
+            stability: { val: document.getElementById('stability-val'), bar: document.getElementById('stability-bar') },
+            budget: { val: document.getElementById('budget-val'), bar: document.getElementById('budget-bar') },
+            context: { val: document.getElementById('context-val'), bar: document.getElementById('context-bar') },
+        };
+        const simulationData = {
+            asc_winner: { name: "ASC_Ghete-Iarna_V1", ingredients: { roas: { value: 3.9, percent: 95 }, stability: { value: 'Foarte Stabilă', percent: 90 }, budget: { value: 'Eficiență Maximă', percent: 100 }, context: { value: 'ASC', percent: 100 } }, recommendation: { decision: { label: "SCALE", color: "green" }, reason: "Performanță excepțională și stabilă pe 7 zile. ROAS-ul de 3.9x este mult peste target, iar contextul de campanie ASC indică un potențial mare de scalare.", action: "Crește bugetul cu 25% imediat. Monitorizează frecvența pentru a preveni saturarea audienței." } },
+            test_loser: { name: "TEST_Hook-Confort_VID", ingredients: { roas: { value: 0.8, percent: 15 }, stability: { value: 'Instabilă', percent: 30 }, budget: { value: 'Buget Irosit', percent: 100 }, context: { value: 'TEST', percent: 50 } }, recommendation: { decision: { label: "KILL", color: "red" }, reason: "ROAS subunitar (0.8x) după un spend semnificativ (peste 3x CPA target). Contextul de 'TEST' arată că acest unghi creativ a eșuat clar.", action: "Oprește imediat ad set-ul. Arhivează creativul și analizează de ce nu a funcționat înainte de a lansa un nou test." } },
+            rmk_borderline: { name: "RMK_14D-ATC_V2", ingredients: { roas: { value: 2.3, percent: 60 }, stability: { value: 'Fluctuantă', percent: 55 }, budget: { value: 'Date Insuficiente', percent: 40 }, context: { value: 'RMK', percent: 75 } }, recommendation: { decision: { label: "WAIT", color: "amber" }, reason: "ROAS-ul este sub target-ul de 2.5x pentru remarketing, iar performanța este fluctuantă. Bugetul cheltuit este încă prea mic pentru o decizie statistic relevantă.", action: "Lasă ad set-ul să ruleze încă 24-48 de ore pentru a acumula mai multe date. Încrederea este prea mică pentru a acționa acum." } }
+        };
 
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h3 class="text-2xl font-bold text-[#005BC5] mb-4 text-center">🔬 TESTING (900 lei)</h3>
-                     <p class="text-center mb-6">The "innovation factory." This is where you discover what works before investing heavily.</p>
-                    <div class="space-y-6">
-                        <div class="border border-gray-200 rounded-lg p-4">
-                            <h4 class="font-bold text-lg flex items-center">🧪 Manual Creatives Lab</h4>
-                            <p class="text-sm text-gray-500 mb-2">TEST - CBO - Creative Lab</p>
-                            <p>Tests new ideas (photo/video) in sprints, using a `1 Ad Set / 1 Ad` structure for clarity.</p>
-                            <p class="font-bold text-2xl text-[#0072F0] mt-2">600 lei</p>
-                        </div>
-                        <div class="border border-gray-200 rounded-lg p-4">
-                             <h4 class="font-bold text-lg flex items-center">📊 Catalog Sets Lab</h4>
-                            <p class="text-sm text-gray-500 mb-2">TEST - DABA - Catalog Sets</p>
-                            <p>Tests the performance of different product categories from the catalog (e.g., Boots, Casual Shoes).</p>
-                            <p class="font-bold text-2xl text-[#3692F2] mt-2">300 lei</p>
-                        </div>
-                    </div>
-                     <div class="chart-container mt-8 !h-64">
-                         <canvas id="testingSplitChart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
+        function updateSimulator(adsetId) {
+            const data = simulationData[adsetId];
+            if (!data) return;
+            Object.keys(meters).forEach(key => {
+                const ingredient = data.ingredients[key];
+                meters[key].val.textContent = ingredient.value;
+                meters[key].bar.style.width = `${ingredient.percent}%`;
+            });
+            const rec = data.recommendation;
+            recommendationOutput.innerHTML = `<div class="p-4 bg-gray-800/50 rounded-lg border-l-4 border-[color:var(--${rec.decision.color})]"><div class="font-bold text-sm text-[color:var(--${rec.decision.color})]">A. DECIZIA</div><p class="text-lg font-extrabold">${rec.decision.label}</p></div><div class="p-4 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">B. MOTIVAȚIA</div><p class="text-sm mt-1">${rec.reason}</p></div><div class="p-4 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">C. PLANUL DE ACȚIUNE</div><p class="text-sm mt-1 font-mono">${rec.action}</p></div>`;
+            recommendationOutput.classList.remove('animate-fadeIn');
+            void recommendationOutput.offsetWidth;
+            recommendationOutput.classList.add('animate-fadeIn');
+        }
+        adsetSelector.addEventListener('change', (e) => updateSimulator(e.target.value));
+        updateSimulator('asc_winner');
 
-        <section class="bg-white rounded-lg shadow-md p-6 mb-12">
-            <h2 class="text-2xl font-bold text-center text-[#00449E] mb-8">The Innovation Flow: From Test to Scale</h2>
-            <div class="flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-8 text-center">
-                <div class="border-2 border-dashed border-[#0072F0] rounded-lg p-6 w-full md:w-1/3">
-                    <div class="text-5xl mb-2">🧪</div>
-                    <h3 class="text-xl font-bold">Creative Lab</h3>
-                    <p class="text-gray-600">New ideas (photo/video) are tested in sprints with a small budget to identify "superstars".</p>
-                </div>
-                
-                <div class="text-4xl text-[#005BC5] font-bold transform md:-rotate-90">⬇️</div>
+        // --- MOTOR DE REGULI ---
+        const targetRoasSlider = document.getElementById('target-roas-slider');
+        const maxCpaSlider = document.getElementById('max-cpa-slider');
+        const targetRoasLabel = document.getElementById('target-roas-label');
+        const maxCpaLabel = document.getElementById('max-cpa-label');
+        const rulesOutput = document.getElementById('rules-evaluation-output');
+        const sampleCampaigns = [
+            { name: "ASC_Ghete_V1", roas: 3.8, cpa: 35 }, { name: "TEST_Comfort_V3", roas: 1.2, cpa: 85 },
+            { name: "RMK_14D_ATC", roas: 2.4, cpa: 42 }, { name: "DABA_All_Products", roas: 2.9, cpa: 39 },
+        ];
+        function evaluateRules() {
+            const targetRoas = parseFloat(targetRoasSlider.value);
+            const maxCpa = parseInt(maxCpaSlider.value);
+            targetRoasLabel.textContent = `${targetRoas.toFixed(1)}x`;
+            maxCpaLabel.textContent = `${maxCpa} RON`;
+            rulesOutput.innerHTML = '';
+            sampleCampaigns.forEach(c => {
+                let status, color;
+                if (c.roas >= targetRoas && c.cpa <= maxCpa) { status = "Performant"; color = "green"; } 
+                else if (c.roas < targetRoas && c.cpa > maxCpa) { status = "Problemă"; color = "red"; } 
+                else { status = "Monitorizează"; color = "amber"; }
+                rulesOutput.innerHTML += `<div class="flex justify-between items-center"><span class="font-mono">${c.name}</span><span class="font-bold text-[color:var(--${color})]">${status}</span></div>`;
+            });
+        }
+        targetRoasSlider.addEventListener('input', evaluateRules);
+        maxCpaSlider.addEventListener('input', evaluateRules);
+        evaluateRules();
 
-                <div class="bg-[#E0F7FA] rounded-lg p-6 w-full md:w-1/3 shadow">
-                    <h3 class="text-xl font-bold text-[#0072F0]">PROMOTE WINNERS</h3>
-                    <p class="mt-2">The data-validated "superstar" creatives are moved using **Post ID** into the main scaling engine.</p>
-                </div>
+        // --- GENERATOR RECOMANDĂRI CREATIVE cu GEMINI API ---
+        const creativeInput = document.getElementById('creative-name-input');
+        const creativeContext = document.getElementById('creative-context-output');
+        const creativeRecs = document.getElementById('creative-recommendations-output');
+        const generateCreativeBtn = document.getElementById('generate-creative-btn');
+        
+        async function getCreativeSuggestionsFromGemini(context) {
+            generateCreativeBtn.disabled = true;
+            creativeRecs.innerHTML = `<div class="flex items-center justify-center h-full"><div class="loader w-8 h-8 rounded-full"></div></div>`;
+            
+            const apiKey = ""; // API key will be provided by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
 
-                 <div class="text-4xl text-[#005BC5] font-bold transform md:-rotate-90">⬇️</div>
-
-                <div class="border-2 border-dashed border-[#0072F0] rounded-lg p-6 w-full md:w-1/3">
-                    <div class="text-5xl mb-2">🚀</div>
-                    <h3 class="text-xl font-bold">Main Scaling Engine</h3>
-                    <p class="text-gray-600">Constantly receives new, high-quality fuel, allowing for aggressive and sustainable scaling.</p>
-                </div>
-            </div>
-             <p class="text-center mt-6 text-gray-600">This continuous cycle of test-promote is the key to long-term success in the Andromeda ecosystem.</p>
-        </section>
-
-         <section class="bg-white rounded-lg shadow-md p-6 mb-12">
-            <h2 class="text-3xl font-bold text-center text-[#00449E] mb-6">🧲 PHASE 3: RETARGETING (1050 lei)</h2>
-            <div class="max-w-3xl mx-auto text-center">
-                <p class="text-lg mb-6">The safety net with the highest ROAS. This campaign exclusively targets "hot" visitors, recovering otherwise lost sales and maximizing profit.</p>
-                <div class="border border-gray-200 rounded-lg p-6 bg-gray-50">
-                    <h4 class="font-bold text-xl">🔥 Recovering Undecided Customers</h4>
-                    <p class="text-sm text-gray-500 mb-2">RET - DPA - ATC/VC 3d</p>
-                    <p>Shows personalized catalog ads to users who have added to cart or viewed a product in the last 3 days, creating a sense of urgency and relevance.</p>
-                    <p class="font-bold text-3xl text-[#6AAAF5] mt-4">1050 lei</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-gray-200/70 rounded-lg p-6">
-             <h2 class="text-3xl font-bold text-center text-[#00449E] mb-8">Naming Convention Scheme</h2>
-             <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">A clear naming structure is essential to quickly analyze performance and make correct decisions. The general formula is: <code>[Stage] - [Type] - [Objective]</code>.</p>
-             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <div class="bg-white rounded-lg shadow p-6 flex flex-col">
-                    <h3 class="font-bold text-lg text-[#005BC5] mb-3">🚀 PRO - ASC - Main Scaler</h3>
-                    <p class="text-xs text-gray-500 mb-2">Scales the best manual creatives.</p>
-                    <div class="text-sm space-y-2 mt-auto">
-                        <p><strong>Ad Set:</strong> <code class="bg-gray-100 p-1 rounded text-xs">ASC Ad Set - BROAD</code></p>
-                        <p><strong>Ad:</strong> <code class="bg-gray-100 p-1 rounded text-xs">[Format]-[Concept]-[V1]</code> (e.g., <code>VID-Asti207-V1</code>)</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow p-6 flex flex-col">
-                    <h3 class="font-bold text-lg text-[#005BC5] mb-3">🏬 PRO - DABA - Catalog All</h3>
-                    <p class="text-xs text-gray-500 mb-2">Ensures coverage for the entire catalog.</p>
-                     <div class="text-sm space-y-2 mt-auto">
-                        <p><strong>Ad Set:</strong> <code class="bg-gray-100 p-1 rounded text-xs">BROAD|Adv+|DABA-All Products</code></p>
-                        <p><strong>Ad:</strong> <code class="bg-gray-100 p-1 rounded text-xs">DPA-All Products-Main</code></p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow p-6 flex flex-col">
-                    <h3 class="font-bold text-lg text-[#005BC5] mb-3">🔥 RET - DPA - ATC/VC 3d</h3>
-                    <p class="text-xs text-gray-500 mb-2">Recovers "hot" customers.</p>
-                    <div class="text-sm space-y-2 mt-auto">
-                        <p><strong>Ad Set:</strong> <code class="bg-gray-100 p-1 rounded text-xs">CUST-ATC-VC 3d|Adv+|DPA</code></p>
-                        <p><strong>Ad:</strong> <code class="bg-gray-100 p-1 rounded text-xs">DPA-All Products-Retargeting</code></p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow p-6 flex flex-col">
-                    <h3 class="font-bold text-lg text-[#005BC5] mb-3">🧪 TEST - CBO - Creative Lab</h3>
-                     <p class="text-xs text-gray-500 mb-2">The lab for testing manual creatives.</p>
-                     <div class="text-sm space-y-2 mt-auto">
-                        <p><strong>Ad Set:</strong> <code class="bg-gray-100 p-1 rounded text-xs">BROAD|Adv+|[Concept]</code> (e.g., <code>...|VIDEO-TravelAngle</code>)</p>
-                        <p><strong>Ad:</strong> <code class="bg-gray-100 p-1 rounded text-xs">[Format]-[Concept]-[V1]</code> (e.g., <code>VID-Travel-V1</code>)</p>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-lg shadow p-6 flex flex-col">
-                    <h3 class="font-bold text-lg text-[#005BC5] mb-3">📊 TEST - DABA - Catalog Sets</h3>
-                     <p class="text-xs text-gray-500 mb-2">The lab for testing catalog sets.</p>
-                     <div class="text-sm space-y-2 mt-auto">
-                        <p><strong>Ad Set:</strong> <code class="bg-gray-100 p-1 rounded text-xs">BROAD|Adv+|DABA-[SetName]</code> (e.g., <code>...|DABA-WinterBoots</code>)</p>
-                        <p><strong>Ad:</strong> <code class="bg-gray-100 p-1 rounded text-xs">DPA-[SetName]-Generic</code></p>
-                    </div>
-                </div>
-                 
-             </div>
-        </section>
-
-    </div>
-
-    <script>
-        function createTooltipCallback() {
-            return {
-                title: function(tooltipItems) {
-                    const item = tooltipItems[0];
-                    let label = item.chart.data.labels[item.dataIndex];
-                    if (Array.isArray(label)) {
-                        return label.join(' ');
-                    } else {
-                        return label;
+            const systemPrompt = "Ești un expert în marketing digital specializat în reclame pe Meta (Facebook/Instagram) pentru branduri de e-commerce din România. Răspunsurile tale trebuie să fie creative, concise, direct aplicabile și în limba română. Oprește-te din a folosi markdown.";
+            const userPrompt = `Generează recomandări creative pentru un ad cu următorul context: Tip campanie: ${context.tip}, Produs: ${context.produs}, Unghi de abordare: ${context.unghi}, Format: ${context.format}.`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: userPrompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            copy: { type: "ARRAY", items: {type: "STRING"} },
+                            headlines: { type: "ARRAY", items: {type: "STRING"} },
+                            visual: { type: "STRING" }
+                        },
                     }
                 }
             };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) { throw new Error(`API call failed with status: ${response.status}`); }
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+                const jsonText = candidate?.content?.parts?.[0]?.text;
+                if (jsonText) {
+                    const parsedJson = JSON.parse(jsonText);
+                    creativeRecs.innerHTML = `<div class="p-3 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">Texte (Copy)</div><ul class="text-sm mt-1 list-disc list-inside">${(parsedJson.copy || []).map(c => `<li>${c}</li>`).join('')}</ul></div><div class="p-3 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">Titluri (Headlines)</div><ul class="text-sm mt-1 list-disc list-inside">${(parsedJson.headlines || []).map(h => `<li>${h}</li>`).join('')}</ul></div><div class="p-3 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">Vizual</div><p class="text-sm mt-1">${parsedJson.visual || 'N/A'}</p></div>`;
+                } else { throw new Error("No content found in API response."); }
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                creativeRecs.innerHTML = `<div class="p-3 bg-red-900/50 rounded-lg text-red-300">A apărut o eroare la generarea recomandărilor. Te rugăm să încerci din nou.</div>`;
+            } finally {
+                generateCreativeBtn.disabled = false;
+            }
         }
 
-        const brilliantBlues = ['#005BC5', '#6AAAF5', '#0072F0', '#3692F2'];
+        function parseAndDisplayContext() {
+            const raw = (creativeInput.value || '').trim();
+            const parts = raw.split('_');
+            const context = { tip: parts[0] || 'N/A', produs: (parts[1] || 'produs').replace(/-/g, ' '), unghi: (parts[2] || 'calitate').replace(/-/g, ' '), format: parts[3] || 'IMG' };
+            creativeContext.textContent = JSON.stringify(context, null, 2);
+            return context;
+        }
+
+        generateCreativeBtn.addEventListener('click', () => {
+            const context = parseAndDisplayContext();
+            getCreativeSuggestionsFromGemini(context);
+        });
+        parseAndDisplayContext();
+
+        // --- INTERACTIVE ROADMAP ---
+        const timelineNav = document.getElementById('timeline-nav');
+        const roadmapContentDisplay = document.getElementById('roadmap-content-display');
+        const roadmapData = {
+            v1_1: { title: 'V1.1: Acțiuni Automate', description: 'Elimină complet munca manuală. Odată ce ai validat o recomandare, ROASIN o poate aplica direct în contul tău de Meta Ads (ex: pauzarea unui ad set, creșterea bugetului) cu un singur click.', visual: '<div class="p-4 border-2 border-dashed border-[color:var(--stroke)] rounded-lg text-center"><p class="text-sm text-[color:var(--muted)]">Mockup: O listă de ad set-uri cu un buton</p><button class="mt-2 bg-green-500 text-white font-bold py-2 px-4 rounded-lg">Aplică Recomandarea</button></div>' },
+            v1_2: { title: 'V1.2: Custom Rule Builder', description: 'Putere maximă pentru utilizatorii avansați. Vei putea crea reguli complexe, cu multiple condiții (ex: "dacă ROAS > 3 ȘI spend > 200 RON ȘI frecvența < 2, atunci..."), permițând o automatizare și mai granulară a contului.', visual: '<div class="p-4 border-2 border-dashed border-[color:var(--stroke)] rounded-lg"><p class="text-sm text-[color:var(--muted)]">Mockup: Editor de reguli</p><div class="mt-2 font-mono text-xs bg-black/50 p-2 rounded">IF <span class="text-blue-400">roas</span> > <span class="text-amber-400">3.0</span> AND <span class="text-blue-400">spend</span> > <span class="text-amber-400">200</span> ...</div></div>' },
+            v1_3: { title: 'V1.3: Simulator de Decizii', description: 'Funcția de prognoză a ROASIN. Înainte de a scala un ad set, simulatorul va folosi date istorice pentru a estima impactul probabil asupra performanței în următoarele 3 zile, ajutându-te să iei decizii mai informate.', visual: '<div class="p-4 border-2 border-dashed border-[color:var(--stroke)] rounded-lg"><p class="text-sm text-[color:var(--muted)]">Mockup: Grafic predictiv</p><div class="mt-2 h-24 w-full bg-black/50 rounded flex items-end"><div class="w-1/2 h-1/2 bg-blue-500/50"></div><div class="w-1/2 h-3/4 bg-green-500/50 border-l-2 border-dashed border-green-300"></div></div></div>' },
+            v2_0: { title: 'V2.0: Suport Multi-Platformă', description: 'ROASIN devine centrul tău de comandă pentru performance marketing. Vom integra Google Ads și TikTok Ads, permițându-ți să aplici aceeași filozofie de "decision-intelligence" pe toate canalele tale principale.', visual: '<div class="p-4 border-2 border-dashed border-[color:var(--stroke)] rounded-lg flex items-center justify-around"><span class="text-3xl">META</span><span class="text-3xl">G</span><span class="text-3xl">TT</span></div>' },
+        };
+        function updateRoadmap(version) {
+            const data = roadmapData[version];
+            if (!data) return;
+            roadmapContentDisplay.innerHTML = `<h4 class="text-lg font-bold text-[color:var(--orange)]">${data.title}</h4><p class="mt-2 text-sm text-[color:var(--muted)]">${data.description}</p><div class="mt-4">${data.visual}</div>`;
+            timelineNav.querySelectorAll('button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.version === version);
+            });
+            roadmapContentDisplay.classList.remove('animate-fadeIn');
+            void roadmapContentDisplay.offsetWidth;
+            roadmapContentDisplay.classList.add('animate-fadeIn');
+        }
+        timelineNav.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON') { updateRoadmap(e.target.dataset.version); }
+        });
+        updateRoadmap('v1_1');
+
+        // --- BLUEPRINT ANDROMEDA ---
+        const evaluateBtn = document.getElementById('evaluate-btn');
+        const campaignTreeContainer = document.getElementById('campaign-tree');
+        const aiStatusIndicator = document.getElementById('ai-status-indicator');
+        const aiStatusText = document.getElementById('ai-status-text');
+        const campaignBlueprintData = [
+            { name: 'stvg.CreativeLab – Purchase', type: 'campaign', roas: 1.80, cpa: 75, spend: 1200, children: [
+                { name: 'stvg.ADSET.Broad – Purchase', type: 'adset', children: [
+                    { name: 'stvg.IMG – Magazin – Alege Fara Griji', type: 'ad', roas: 0.90, cpa: 110, spend: 400 },
+                    { name: 'stvg.IMG – Metrou – Adorabile', type: 'ad', roas: 3.10, cpa: 45, spend: 500 },
+                    { name: 'stvg.IMG – Studio – Bej Cosulet', type: 'ad', roas: 1.50, cpa: 78, spend: 300 }
+                ]}
+            ]},
+            { name: 'stvg.Main – Scaler', type: 'campaign', roas: 4.20, cpa: 38, spend: 5500, children: [
+                { name: 'stvg.ADSET.Broad – Purchase', type: 'adset', children: [
+                    { name: 'stvg.IMG – Outdoor – CityWalk', type: 'ad', roas: 4.50, cpa: 35, spend: 3000 },
+                    { name: 'stvg.IMG – Lifestyle – OfficeDay', type: 'ad', roas: 3.90, cpa: 41, spend: 2500 }
+                ]}
+            ]},
+            { name: 'stvg.DABA – Catalog', type: 'campaign', roas: 3.10, cpa: 45, spend: 2800, children: [
+                { name: 'stvg.ADSET.AllProducts', type: 'adset', children: [ { name: 'stvg.AD.AllProducts', type: 'ad', roas: 3.10, cpa: 45, spend: 2800 } ] },
+                 { name: 'stvg.ADSET.CategorySets', type: 'adset', children: [
+                    { name: 'stvg.AD.Ghete-Iarna', type: 'ad', roas: 4.10, cpa: 33, spend: 1200},
+                    { name: 'stvg.AD.Botine', type: 'ad', roas: 2.90, cpa: 48, spend: 800},
+                    { name: 'stvg.AD.Cizme', type: 'ad', roas: 2.20, cpa: 55, spend: 800},
+                 ] }
+            ]},
+             { name: 'stvg.Retarget – Warm', type: 'campaign', roas: 5.50, cpa: 25, spend: 800, children: [
+                { name: 'stvg.ADSET.RTG.7-14d.ViewContent+ATC', type: 'adset', children: [
+                    { name: 'stvg.IMG – Reminder – Schimb Gratuit', type: 'ad', roas: 5.80, cpa: 22, spend: 400 },
+                    { name: 'stvg.IMG – Reminder – Ultime Perechi', type: 'ad', roas: 5.20, cpa: 28, spend: 400 }
+                ]}
+            ]},
+        ];
+
+        function getDecision(item) {
+            if(item.name.includes("Metrou – Adorabile") && item.type === 'ad') return { label: "PROMOVEAZĂ", color: "purple" };
+            if (item.roas > 2.8) return { label: "SCALE", color: "green" };
+            if (item.roas < 1.5) return { label: "KILL", color: "red" };
+            return { label: "WAIT", color: "amber" };
+        }
+
+        function renderBlueprintNode(item, level = 0, isEvaluation = false) {
+            const itemDiv = document.createElement('div');
+            const typeClass = `type-${item.type}`;
+            itemDiv.className = `blueprint-item flex justify-between items-center transition-all duration-300 py-2 rounded ${typeClass}`;
+
+            const nameSpan = document.createElement('span');
+            nameSpan.style.paddingLeft = `${level * 1.5}rem`;
+            nameSpan.textContent = item.name.replace(/–/g, '– ');
+            itemDiv.appendChild(nameSpan);
+
+            const resultsContainer = document.createElement('div');
+            resultsContainer.className = 'results-container text-xs';
+            itemDiv.appendChild(resultsContainer);
+            
+            if (isEvaluation && item.roas !== undefined) {
+                const decision = getDecision(item);
+                resultsContainer.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+                resultsContainer.innerHTML = `
+                    <span class="inline-block w-24 text-right"><span class="text-[color:var(--muted)]">ROAS:</span> <span class="font-bold ${item.roas > 2.8 ? 'text-green-400' : ''}">${item.roas.toFixed(2)}x</span></span>
+                    <span class="inline-block w-24 text-right"><span class="text-[color:var(--muted)]">CPA:</span> <span class="font-bold">${item.cpa} RON</span></span>
+                    <span class="inline-block w-28 text-right"><span class="text-[color:var(--muted)]">Spend:</span> <span class="font-bold">${item.spend} RON</span></span>
+                    <span class="inline-block w-28 text-right">
+                        <span class="ml-4 text-xs font-bold py-1 px-2 rounded-full text-white" style="background-color: var(--${decision.color})">${decision.label}</span>
+                    </span>
+                `;
+            }
+
+            campaignTreeContainer.appendChild(itemDiv);
+
+            if (item.children) {
+                item.children.forEach(child => renderBlueprintNode(child, level + 1, isEvaluation));
+            }
+        }
+
+        function displayInitialBlueprint() {
+             campaignTreeContainer.innerHTML = '';
+             aiStatusText.textContent = 'În așteptare';
+             aiStatusIndicator.style.backgroundColor = 'var(--muted)';
+             aiStatusIndicator.classList.remove('animate-pulse');
+             campaignBlueprintData.forEach(campaign => renderBlueprintNode(campaign, 0, false));
+        }
+
+        evaluateBtn.addEventListener('click', () => {
+            evaluateBtn.disabled = true;
+            campaignTreeContainer.innerHTML = '';
+            campaignBlueprintData.forEach(campaign => renderBlueprintNode(campaign, 0, true));
+            
+            aiStatusText.textContent = 'Analizez...';
+            aiStatusIndicator.style.backgroundColor = 'var(--amber)';
+            aiStatusIndicator.classList.add('animate-pulse');
+
+            const items = campaignTreeContainer.querySelectorAll('.blueprint-item');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                   item.classList.add('scanning');
+                   const result = item.querySelector('.results-container');
+                   if (result) {
+                       result.classList.remove('opacity-0');
+                       result.classList.add('opacity-100');
+                   }
+                   setTimeout(() => item.classList.remove('scanning'), 400);
+
+                   if(index === items.length - 1) {
+                        aiStatusText.textContent = 'Analiză Completă';
+                        aiStatusIndicator.style.backgroundColor = 'var(--green)';
+                        aiStatusIndicator.classList.remove('animate-pulse');
+                        evaluateBtn.disabled = false;
+                   }
+                }, index * 100);
+            });
+        });
         
-        const budgetSplitCtx = document.getElementById('budgetSplitChart').getContext('2d');
-        new Chart(budgetSplitCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Prospecting', 'Retargeting'],
-                datasets: [{
-                    label: 'Budget Distribution',
-                    data: [5950, 1050],
-                    backgroundColor: [brilliantBlues[0], brilliantBlues[1]],
-                    borderColor: '#FFFFFF',
-                    borderWidth: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: createTooltipCallback()
-                    }
-                },
-                cutout: '70%'
-            }
-        });
-
-        const scalingSplitCtx = document.getElementById('scalingSplitChart').getContext('2d');
-        new Chart(scalingSplitCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Main Engine (Manuals)', 'Volume Engine (Catalog)'],
-                datasets: [{
-                    label: 'Scaling Budget',
-                    data: [3550, 1500],
-                    backgroundColor: [brilliantBlues[2], brilliantBlues[3]],
-                    borderRadius: 8
-                }]
-            },
-            options: {
-                indexAxis: 'y',
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: createTooltipCallback()
-                    }
-                },
-                scales: {
-                    x: {
-                        beginAtZero: true,
-                        grid: {
-                            display: false
-                        }
-                    },
-                    y: {
-                         grid: {
-                            display: false
-                        }
-                    }
-                }
-            }
-        });
-
-        const testingSplitCtx = document.getElementById('testingSplitChart').getContext('2d');
-        new Chart(testingSplitCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Creative Lab (Manuals)', 'Catalog Sets Lab'],
-                datasets: [{
-                    label: 'Testing Budget',
-                    data: [600, 300],
-                    backgroundColor: [brilliantBlues[2], brilliantBlues[3]],
-                     borderRadius: 8
-                }]
-            },
-            options: {
-                 indexAxis: 'y',
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: createTooltipCallback()
-                    }
-                },
-                scales: {
-                     x: {
-                        beginAtZero: true,
-                        grid: {
-                            display: false
-                        }
-                    },
-                    y: {
-                         grid: {
-                            display: false
-                        }
-                    }
-                }
-            }
-        });
-    </script>
+        displayInitialBlueprint();
+    });
+  </script>
 </body>
 </html>
+
 
