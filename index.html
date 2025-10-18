@@ -1,1 +1,587 @@
-<!DOCTYPE html> <html lang="ro" class="scroll-smooth"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1" /> <title>ROASIN — Documentație Completă și Interactivă v2</title> <script src="https://cdn.tailwindcss.com"></script> <link rel="preconnect" href="https://fonts.googleapis.com"> <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> <style> :root{ --bg:#0B0F14; --panel:#0f151d; --glass:rgba(17, 24, 39, 0.7); --stroke:rgba(43, 56, 71, 0.8); --text:#E6EDF6; --muted:#9AA8B5; --orange:#FF6A3D; --orange-hover:#ff5a26; --green:#12b76a; --amber:#f59e0b; --red:#ef4444; --blue:#3b82f6; --purple:#8b5cf6; } body{ font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto; color:var(--text); background:radial-gradient(1200px 800px at 100% -10%, rgba(255,106,61,.08), transparent 55%), radial-gradient(1000px 700px at -10% 120%, rgba(255,106,61,.06), transparent 55%), var(--bg); } .glass{background:var(--glass); border:1px solid var(--stroke); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow:0 10px 30px rgba(0,0,0,.35)} .title{font-weight:900; letter-spacing:-.02em} .kicker{font-weight: 800; letter-spacing: 0.1em; color: var(--orange); text-transform: uppercase;} .section-spacing { margin-top: 6rem; } .highlight{ background: linear-gradient(to right, var(--orange), var(--orange-hover)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;} .meter-bar, .rules-bar { transition: width 0.5s ease-out; } @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } } .animate-fadeIn { animation: fadeIn 0.5s ease-out forwards; } @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } } .loader { border: 2px solid var(--stroke); border-top-color: var(--orange); animation: spin 1s linear infinite; } input[type=range] { -webkit-appearance: none; background: transparent; width: 100%;} input[type=range]:focus { outline: none; } input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: var(--stroke); border-radius: 3px; } input[type=range]::-webkit-slider-thumb { height: 18px; width: 18px; border-radius: 50%; background: var(--orange); cursor: pointer; -webkit-appearance: none; margin-top: -6px; box-shadow: 0 0 5px rgba(255,106,61,.5); } input[type=range]::-moz-range-track { width: 100%; height: 6px; cursor: pointer; background: var(--stroke); border-radius: 3px; } input[type=range]::-moz-range-thumb { height: 18px; width: 18px; border-radius: 50%; background: var(--orange); cursor: pointer; border:none; box-shadow: 0 0 5px rgba(255,106,61,.5); } .timeline-item.active { background-color: var(--orange); color: white; } .timeline-item { transition: all 0.2s ease-in-out; } .btn-primary{background:linear-gradient(180deg, var(--orange), var(--orange-hover)); border-color:transparent; color:white; transition: all 0.2s ease-in-out; } .btn-primary:hover{transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255,106,61,.2);} .btn-primary:disabled { background: var(--stroke); color: var(--muted); cursor: not-allowed; transform: none; box-shadow: none; } .blueprint-item.scanning { background-color: rgba(255, 106, 61, 0.1); } .type-campaign { font-weight: bold; color: white; padding-top: 0.75rem; padding-bottom: 0.25rem; border-top: 1px solid var(--stroke); } .type-campaign:first-child { padding-top: 0; border-top: none; } .type-adset { color: var(--muted); } .type-ad { color: var(--text); } </style> </head> <body class="transition-all duration-300"> <main class="max-w-5xl mx-auto p-4 sm:p-6 md:p-8"> <!-- INTRODUCERE --> <section id="intro" class="text-center"> <div class="kicker text-sm">VIZIUNEA ROASIN</div> <h1 class="text-4xl md:text-6xl title mt-4">De la Date la Decizie. Instantaneu.</h1> <p class="mt-6 text-lg text-[color:var(--muted)] max-w-3xl mx-auto">Bun venit la documentația completă a ROASIN. Această pagină combină o <span class="text-white">explicație interactivă</span> a conceptelor cheie cu <span class="text-white">detaliile complete</span> din Product Requirements Document (PRD) pentru a oferi o imagine de ansamblu completă a produsului.</p> </section> <!-- ANDROMEDA FRAMEWORK --> <section id="andromeda" class="section-spacing"> <div class="text-center"> <div class="kicker text-sm">STRATEGIA (UPDATE-UL ANDROMEDA)</div> <h2 class="text-3xl md:text-4xl title mt-4">Noul Model de Scalare: Andromeda</h2> <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Andromeda este o filozofie de management care prioritizează testarea creativă și scalarea prin Advantage+ Shopping (ASC). ROASIN este construit pentru a automatiza și optimiza acest flux.</p> </div> <div class="mt-8 glass rounded-2xl p-8"> <h3 class="text-xl font-bold text-center">Fluxul de Performanță Andromeda</h3> <div class="mt-6 flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-6 text-center"> <div class="glass rounded-xl p-6 border-l-4 border-[color:var(--amber)] flex-1"><div class="text-2xl">🧪</div><h4 class="font-bold mt-2">1. Creative Lab (TEST)</h4><p class="text-sm text-[color:var(--muted)] mt-1">Campanii manuale, cu buget redus, unde se testează constant noi unghiuri creative, formate și mesaje.</p></div> <div class="text-3xl font-thin text-[color:var(--muted)] transform md:-translate-y-4"><span class="block md:hidden">↓</span> <span class="hidden md:block">→</span><div class="text-sm font-bold">Promovăm Câștigătorii</div></div> <div class="glass rounded-xl p-6 border-l-4 border-[color:var(--green)] flex-1"><div class="text-2xl">🚀</div><h4 class="font-bold mt-2">2. Core Scaling (ASC)</h4><p class="text-sm text-[color:var(--muted)] mt-1">Creativele validate în "Lab" sunt mutate în campanii Advantage+ Shopping, unde AI-ul Meta le scalează la potențial maxim.</p></div> </div> </div> </section> <!-- NEW: INCREMENTAL PROFIT ENGINE --> <section id="incremental-profit-engine" class="section-spacing"> <div class="text-center"> <div class="kicker text-sm">PROFIT REAL, NU VANITATE</div> <h2 class="text-3xl md:text-4xl title mt-4">ROASIN Incremental Profit Engine</h2> <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Acest motor dezvăluie profitabilitatea reală din spatele campaniilor tale Meta. Calculează profitul per tranzacție (GPT) și valoarea totală a profitului (GPV), apoi clasifică fiecare campanie și explică deciziile cu ajutorul AI-ului.</p> </div> <div class="mt-8 glass rounded-2xl p-6 md:p-8"> <div class="flex justify-center mb-6"> <button id="run-profit-engine-btn" class="btn-primary font-bold py-3 px-6 rounded-full flex items-center gap-2"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path d="M10 3.75a.75.75 0 01.75.75v1.5h1.5a.75.75 0 010 1.5h-1.5v1.5a.75.75 0 01-1.5 0v-1.5h-1.5a.75.75 0 010-1.5h1.5v-1.5a.75.75 0 01.75-.75z" /><path fill-rule="evenodd" d="M5.955 3.012a8.25 8.25 0 00-2.065 5.237.75.75 0 01-1.49.102A9.75 9.75 0 017.02 2.062a.75.75 0 01.103 1.49l-1.168-.54zm8.09 0a.75.75 0 01.103-1.49 9.75 9.75 0 013.115 6.075.75.75 0 01-1.49.103 8.25 8.25 0 00-2.065-5.237l1.168.54a.75.75 0 01-.103 1.49l-1.168-.54zM2 12.75a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75zM8.25 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018.25 15zM11.75 15a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5a.75.75 0 01.75-.75z" clip-rule="evenodd" /></svg> Rulează Motorul de Profit </button> </div> <div id="profit-engine-flow" class="space-y-6"> <!-- Flow will be injected by JS --> </div> </div> </section> <!-- DECISION ENGINE --> <section id="decision-engine" class="section-spacing"> <div class="text-center"> <div class="kicker text-sm">CREIERUL APLICAȚIEI</div> <h2 class="text-3xl md:text-4xl title mt-4">ROASIN Decision Engine</h2> <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Acesta este sistemul automat de decizii care analizează fiecare adset și decide ce trebuie făcut: scale, hold sau pause. Mai jos este o simulare a acestui proces.</p> </div> <div class="mt-8 glass rounded-2xl p-6 md:p-8"> <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4"> <h3 class="font-bold text-xl">Decision Engine</h3> <div class="flex items-center gap-4"> <button id="explain-ai-btn" class="font-semibold text-sm py-2 px-4 rounded-full border border-[color:var(--stroke)] hover:bg-white/5 transition-colors flex items-center gap-2"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-purple-400"><path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" /></svg> Explain (AI) </button> <button class="btn-primary font-bold py-2 px-4 rounded-full">Apply Decisions</button> </div> </div> <div class="grid lg:grid-cols-3 gap-8"> <div id="decision-engine-table" class="lg:col-span-2 space-y-2"> <!-- JS will populate this --> </div> <div id="decision-engine-summary" class="lg:col-span-1 bg-gray-900/50 p-4 rounded-lg"> <!-- JS will populate summary --> </div> </div> </div> </section> <!-- BLUEPRINT ANDROMEDA --> <section id="andromeda-blueprint" class="section-spacing"> <div class="text-center"> <div class="kicker text-sm">EXEMPLU PRACTIC</div> <h2 class="text-3xl md:text-4xl title mt-4">Blueprint-ul Andromeda: AI în Acțiune</h2> <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Mai jos este o reprezentare vizuală a unei structuri de cont Andromeda. Apasă pe buton pentru a simula cum AI Assistant-ul ROASIN evaluează fiecare element și oferă recomandări clare, bazate pe performanță.</p> </div> <div class="mt-8 glass rounded-2xl p-6 md:p-8"> <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4"> <div id="ai-status-container" class="flex items-center gap-2 text-sm font-semibold text-[color:var(--muted)]"> <span id="ai-status-indicator" class="w-3 h-3 rounded-full bg-gray-500 transition-colors"></span> <span id="ai-status-text">În așteptare</span> </div> <button id="evaluate-btn" class="btn-primary font-bold py-3 px-6 rounded-full flex items-center gap-2"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 01-9.204 2.153a.75.75 0 00-1.06-1.06l-2.475 2.475a.75.75 0 000 1.06l2.475 2.475a.75.75 0 001.06-1.06l-1.09-1.09A7 7 0 0016.95 13.5a.75.75 0 00-1.06-1.06l-1.09 1.09a5.5 5.5 0 01-2.153-2.105l4.28-4.28a.75.75 0 10-1.06-1.06l-4.28 4.28zM5.78 4.22a.75.75 0 00-1.06 1.06l1.09 1.09A5.5 5.5 0 003.05 8.5a.75.75 0 001.06 1.06l1.09-1.09a7 7 0 0110.665-3.535.75.75 0 001.06-1.06l2.475-2.475a.75.75 0 00-1.06-1.06L16.4 3.175a.75.75 0 00-1.06 1.06l1.09 1.09a5.5 5.5 0 00-9.514-1.106L5.78 4.22z" clip-rule="evenodd" /></svg> Evaluează Performanța </button> </div> <div id="campaign-tree" class="font-mono text-sm space-y-1 bg-gray-900/50 p-4 rounded-lg"> <!-- JS will populate this --> </div> </div> </section> <!-- SIMULATORUL DE DECIZIE --> <section id="simulator" class="section-spacing"> <div class="text-center"> <div class="kicker text-sm">MOTORUL ROASIN ÎN ACȚIUNE</div> <h2 class="text-3xl md:text-4xl title mt-4">Simulatorul de Decizie Interactiv</h2> <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Selectează un ad set de mai jos pentru a vedea exact cum îl analizează motorul ROASIN. Observă cum se schimbă "ingredientele" AI-ului și recomandarea finală.</p> </div> <div class="mt-8 glass rounded-2xl p-6 md:p-8"> <div class="mb-6"><label for="adset-selector" class="font-semibold mb-2 block">Alege un Ad Set pentru Simulare:</label><select id="adset-selector" class="w-full bg-gray-900/50 border border-[color:var(--stroke)] rounded-xl px-4 py-3 outline-none focus:border-[color:var(--orange)] transition-colors"><option value="asc_winner">ASC_Ghete-Iarna_V1 (Câștigător Stabil)</option><option value="test_loser">TEST_Hook-Confort_VID (Eșec Clar)</option><option value="rmk_borderline">RMK_14D-ATC_V2 (Caz la Limitâ)</option></select></div> <div class="grid lg:grid-cols-3 gap-8"> <div class="lg:col-span-1"> <div class="space-y-4"> <h3 class="font-bold text-lg">"Ingredientele" Analizate de AI</h3> <div class="meter"><label class="text-sm font-semibold flex justify-between">ROAS vs. Target <span id="roas-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="roas-bar" class="bg-gradient-to-r from-green-500 to-green-400 h-2.5 rounded-full meter-bar"></div></div></div> <div class="meter"><label class="text-sm font-semibold flex justify-between">Stabilitatea Performanței <span id="stability-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="stability-bar" class="bg-gradient-to-r from-blue-500 to-blue-400 h-2.5 rounded-full meter-bar"></div></div></div> <div class="meter"><label class="text-sm font-semibold flex justify-between">Eficiența Bugetului <span id="budget-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="budget-bar" class="bg-gradient-to-r from-amber-500 to-amber-400 h-2.5 rounded-full meter-bar"></div></div></div> <div class="meter"><label class="text-sm font-semibold flex justify-between">Context Andromeda <span id="context-val" class="text-xs font-mono"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="context-bar" class="bg-gradient-to-r from-orange-500 to-orange-400 h-2.5 rounded-full meter-bar"></div></div></div> </div> <div class="mt-6 pt-4 border-t border-[color:var(--stroke)]"> <label class="text-sm font-semibold flex justify-between">Scor de Încredere <span id="confidence-val" class="font-bold text-lg">0%</span></label> <div class="w-full bg-gray-700 rounded-full h-4 mt-2 relative"> <div id="confidence-bar" class="bg-gradient-to-r from-purple-500 to-purple-400 h-4 rounded-full meter-bar flex items-center justify-center text-xs font-bold text-white" style="width: 0%;"></div> </div> </div> </div> <div class="lg:col-span-2"><h3 class="font-bold text-lg">Rezultatul Analizei: Recomandare Completă</h3><div id="recommendation-output" class="mt-4 space-y-3 animate-fadeIn"></div></div> </div> </div> </section> <!-- ADVANCED FEATURES SECTION --> <section id="advanced-features" class="section-spacing"> <div class="text-center"> <div class="kicker text-sm">FUNCȚIONALITĂȚI AVANSATE</div> <h2 class="text-3xl md:text-4xl title mt-4">Personalizare și Inteligență Creativă</h2> <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">ROASIN merge dincolo de simple recomandări. Îți permite să personalizezi motorul de reguli și folosește contextul pentru a oferi sugestii creative valoroase.</p> </div> <div class="mt-8 glass rounded-2xl p-6 md:p-8"> <h3 class="font-bold text-xl mb-2">Motorul de Reguli Personalizabil</h3> <p class="text-[color:var(--muted)] text-sm mb-6">Setează-ți propriile praguri de performanță. Motorul va folosi aceste reguli pentru a-ți oferi o imagine de ansamblu instantanee asupra sănătății contului, înainte ca AI-ul să intervină pentru cazurile complexe.</p> <div class="grid md:grid-cols-2 gap-8"> <div> <div class="mb-4"><label class="font-semibold flex justify-between">ROAS Țintă <span id="target-roas-label" class="text-[color:var(--orange)]"></span></label><input type="range" id="target-roas-slider" min="1.0" max="100.0" value="2.5" step="0.5"></div> <div><label class="font-semibold flex justify-between">CPA Maxim Acceptat <span id="max-cpa-label" class="text-[color:var(--orange)]"></span></label><input type="range" id="max-cpa-slider" min="10" max="100" value="40" step="1"></div> </div> <div class="bg-gray-800/50 p-4 rounded-lg"><h4 class="font-semibold text-sm mb-2">Evaluare Campanii (Live)</h4><div id="rules-evaluation-output" class="space-y-2 text-sm"></div></div> </div> </div> <div class="mt-8 glass rounded-2xl p-6 md:p-8"> <h3 class="font-bold text-xl mb-2">Generator de Recomandări Creative cu Gemini AI</h3> <p class="text-[color:var(--muted)] text-sm mb-6">Introdu numele unui ad și apasă butonul. ROASIN extrage contextul și cheamă API-ul Gemini pentru a genera instantaneu propuneri creative unice.</p> <div class="grid lg:grid-cols-2 gap-8"> <div> <label for="creative-name-input" class="font-semibold mb-2 block">Nume Ad (ex: TEST_Ghete-Piele_Hook-Durabilitate_VID)</label> <input id="creative-name-input" class="w-full bg-transparent border border-[color:var(--stroke)] rounded-xl px-4 py-3 outline-none focus:border-[color:var(--orange)] transition-colors" value="TEST_Ghete-Piele_Hook-Durabilitate_VID"> <button id="generate-creative-btn" class="btn-primary font-bold py-2 px-4 rounded-full flex items-center gap-2 mt-4"> ✨ Generează Recomandări AI </button> <pre id="creative-context-output" class="mt-4 text-xs p-3 rounded-lg bg-gray-800/50"></pre> </div> <div id="creative-recommendations-output" class="space-y-3 animate-fadeIn min-h-[200px]"> <!-- Gemini response here --> </div> </div> </div> </section> <!-- PRD DETAILS --> <section id="prd-details" class="section-spacing"> <div class="text-center"><div class="kicker text-sm">ANEXĂ</div><h2 class="text-3xl md:text-4xl title mt-4">Detalii din Product Requirements Document</h2><p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Mai jos se regăsesc secțiunile cheie din PRD-ul formal, care stau la baza viziunii și funcționalităților prezentate mai sus.</p></div> <div class="mt-8"><h3 class="text-2xl font-bold text-center mb-6">Audiența Țintă</h3><div class="grid md:grid-cols-2 gap-8"><div class="glass rounded-xl p-6"><h4 class="font-bold text-lg">👩‍💼 Mara, E-commerce Owner</h4><p class="text-sm text-[color:var(--muted)] mt-1">Rulează 3-5 conturi, cu un spend de 5 cifre lunar. Este focusată pe performanță, dar obosită de multitudinea de decizii zilnice.</p><ul class="mt-4 text-sm list-disc list-inside space-y-1"><li>Nevoie: Un co-pilot AI de încredere.</li><li>Metrica: POAS (Profit over Ad Spend) > 2.5.</li><li>Doleanță: Simulare predictivă ("Ce se întâmplă dacă...?").</li></ul></div><div class="glass rounded-xl p-6"><h4 class="font-bold text-lg">👨‍💻 Alex, Freelancer Ambițios</h4><p class="text-sm text-[color:var(--muted)] mt-1">Gestionează 5-7 conturi de client și vrea să livreze rezultate de expert fără a petrece ore în Ads Manager.</p><ul class="mt-4 text-sm list-disc list-inside space-y-1"><li>Nevoie: Acțiuni clare ("Fă asta").</li><li>Justificare: Motivații simple ("Iată de ce").</li><li>Scop: Creșterea propriei expertize și a încrederii clienților.</li></ul></div></div></div> <div class="mt-12"> <h3 class="text-2xl font-bold text-center mb-6">Ingineria Deciziilor și Conformitate</h3> <div class="space-y-8"> <div class="glass rounded-xl p-6"> <h4 class="font-bold text-lg">4. Calculul Scorului de Încredere (Confidence Score)</h4> <p class="text-sm text-[color:var(--muted)] mt-1">Pentru a face încrederea un factor calculabil, nu abstract, definim formula:</p> <div class="mt-4 font-mono text-sm bg-gray-800/50 p-4 rounded-lg"> Confidence = (W_volum × S_stabilitate × A_reguli × C_AI) </div> <ul class="mt-4 text-sm list-disc list-inside space-y-1 text-[color:var(--muted)]"> <li>Fiecare factor este normalizat între 0 și 1.</li> <li>Exemplu: O variație mare a performanței (`S_stabilitate` mic) va reduce încrederea finală, chiar dacă certitudinea AI (`C_AI`) este mare.</li> </ul> </div> <div class="glass rounded-xl p-6"> <h4 class="font-bold text-lg">5. Clarificarea Acurateței Recomandărilor AI</h4> <p class="text-sm text-[color:var(--muted)] mt-1">Acuratețea va fi măsurată printr-un audit uman expert, lunar, pe un eșantion de 200 de ad set-uri alese aleatoriu.</p> <p class="mt-2 text-sm text-[color:var(--muted)]">O decizie este considerată <strong>corectă</strong> dacă se potrivește cu acțiunea umană în limita a ±1 nivel (ex: AI recomandă "Wait", expertul alege "Scale" - este o potrivire. AI recomandă "Kill", expertul alege "Scale" - nu este o potrivire).</p> </div> <div class="glass rounded-xl p-6"> <h4 class="font-bold text-lg">6. Conformitate Legală și a Platformelor</h4> <p class="text-sm text-[color:var(--muted)] mt-1">Sistemul va respecta cu strictețe toți termenii de utilizare ai API-urilor Meta, politicile de date ale Google/OpenAI și reglementările GDPR privind datele de campanie stocate de utilizatori (incluzând dreptul la ștergere și anonimizare).</p> </div> </div> </div> <div class="mt-12"><h3 class="text-2xl font-bold text-center mb-6">Metrici de Succes</h3><div class="glass rounded-xl p-6 overflow-x-auto"><table class="w-full text-left"><thead><tr class="border-b border-[color:var(--stroke)]"><th class="p-3 font-semibold">Metrica de Business</th><th class="p-3 font-semibold">Obiectiv</th></tr></thead><tbody><tr><td class="p-3">POAS Uplift</td><td class="p-3 text-[color:var(--green)] font-semibold">+20% în 14 zile de la adopție</td></tr><tr class="border-t border-[color:var(--stroke)]"><td class="p-3">Viteza Decizională</td><td class="p-3">80% din acțiuni luate în 24h de la sync</td></tr><tr class="border-t border-[color:var(--stroke)]"><td class="p-3">Acuratețea Recomandărilor AI</td><td class="p-3">≥ 85% aliniere cu un audit de expert</td></tr></tbody></table></div></div> <div class="mt-12"> <h3 class="text-2xl font-bold text-center mb-6">Roadmap Interactiv</h3> <div class="glass rounded-2xl p-6 md:p-8"> <div class="grid md:grid-cols-3 gap-8"> <div class="md:col-span-1"> <div id="timeline-nav" class="space-y-2"> <button data-version="v1_1" class="timeline-item w-full text-left font-bold p-3 rounded-lg">V1.1: Acțiuni Automate</button> <button data-version="v1_2" class="timeline-item w-full text-left font-bold p-3 rounded-lg">V1.2: Custom Rule Builder</button> <button data-version="v1_3" class="timeline-item w-full text-left font-bold p-3 rounded-lg">V1.3: Simulator de Decizii</button> <button data-version="v2_0" class="timeline-item w-full text-left font-bold p-3 rounded-lg">V2.0: Suport Multi-Platformă</button> </div> </div> <div id="roadmap-content-display" class="md:col-span-2 bg-gray-800/50 p-6 rounded-lg animate-fadeIn"> <!-- Roadmap content will be injected here --> </div> </div> </div> </div> </section> <!-- MODAL PENTRU DETALII RECOMANDARE --> <div id="blueprint-modal" class="fixed inset-0 z-50 items-center justify-center p-4 hidden" style="background:rgba(0,0,0,.5); backdrop-filter:blur(4px);"> <!-- Content will be injected by JS --> </div> <!-- MODAL PENTRU AI EXPLAINER --> <div id="ai-explainer-modal" class="fixed inset-0 z-50 items-center justify-center p-4 hidden" style="background:rgba(0,0,0,.5); backdrop-filter:blur(4px);"> <div class="glass rounded-2xl w-full max-w-lg p-6 relative animate-fadeIn"> <button id="close-ai-explainer-modal" class="absolute top-4 right-4 text-2xl text-[color:var(--muted)] hover:text-white">&times;</button> <div class="flex items-center gap-3"> <div class="p-2 bg-purple-500/10 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-purple-400"><path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" /></svg></div> <h3 class="text-xl font-bold text-white">AI Decision Explanation</h3> </div> <div id="ai-explainer-content" class="mt-4 text-sm text-[color:var(--muted)] space-y-3"> <!-- AI Explanation will be injected here --> </div> </div> </div> </main> <script> document.addEventListener('DOMContentLoaded', () => { // --- SIMULATOR DE DECIZIE --- const adsetSelector = document.getElementById('adset-selector'); const recommendationOutput = document.getElementById('recommendation-output'); const meters = { roas: { val: document.getElementById('roas-val'), bar: document.getElementById('roas-bar') }, stability: { val: document.getElementById('stability-val'), bar: document.getElementById('stability-bar') }, budget: { val: document.getElementById('budget-val'), bar: document.getElementById('budget-bar') }, context: { val: document.getElementById('context-val'), bar: document.getElementById('context-bar') }, }; const confidenceVal = document.getElementById('confidence-val'); const confidenceBar = document.getElementById('confidence-bar'); const simulationData = { asc_winner: { name: "ASC_Ghete-Iarna_V1", ingredients: { roas: { value: 3.9, percent: 95 }, stability: { value: 'Foarte Stabilă', percent: 90 }, budget: { value: 'Eficiență Maximă', percent: 100 }, context: { value: 'ASC', percent: 100 } }, confidence: 95, recommendation: { decision: { label: "SCALE", color: "green" }, reason: "Performanță excepțională și stabilă pe 7 zile. ROAS-ul de 3.9x este mult peste target, iar contextul de campanie ASC indică un potențial mare de scalare.", action: "Crește bugetul cu 25% imediat. Monitorizează frecvența pentru a preveni saturarea audienței." } }, test_loser: { name: "TEST_Hook-Confort_VID", ingredients: { roas: { value: 0.8, percent: 15 }, stability: { value: 'Instabilă', percent: 30 }, budget: { value: 'Buget Irosit', percent: 100 }, context: { value: 'TEST', percent: 50 } }, confidence: 65, recommendation: { decision: { label: "KILL", color: "red" }, reason: "ROAS subunitar (0.8x) după un spend semnificativ (peste 3x CPA target). Contextul de 'TEST' arată că acest unghi creativ a eșuat clar.", action: "Oprește imediat ad set-ul. Arhivează creativul și analizează de ce nu a funcționat înainte de a lansa un nou test." } }, rmk_borderline: { name: "RMK_14D-ATC_V2", ingredients: { roas: { value: 2.3, percent: 60 }, stability: { value: 'Fluctuantă', percent: 55 }, budget: { value: 'Date Insuficiente', percent: 40 }, context: { value: 'RMK', percent: 75 } }, confidence: 48, recommendation: { decision: { label: "WAIT", color: "amber" }, reason: "ROAS-ul este sub target-ul de 2.5x pentru remarketing, iar performanța este fluctuantă. Bugetul cheltuit este încă prea mic pentru o decizie statistic relevantă.", action: "Lasă ad set-ul să ruleze încă 24-48 de ore pentru a acumula mai multe date. Încrederea este prea mică pentru a acționa acum." } } }; function updateSimulator(adsetId) { const data = simulationData[adsetId]; if (!data) return; Object.keys(meters).forEach(key => { const ingredient = data.ingredients[key]; meters[key].val.textContent = ingredient.value; meters[key].bar.style.width = `${ingredient.percent}%`; }); if (data.confidence !== undefined) { const confidence = data.confidence; confidenceVal.textContent = `${confidence}%`; confidenceBar.style.width = `${confidence}%`; confidenceBar.textContent = `${confidence}%`; } const rec = data.recommendation; recommendationOutput.innerHTML = `<div class="p-4 bg-gray-800/50 rounded-lg border-l-4 border-[color:var(--${rec.decision.color})]"><div class="font-bold text-sm text-[color:var(--${rec.decision.color})]">A. DECIZIA</div><p class="text-lg font-extrabold">${rec.decision.label}</p></div><div class="p-4 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">B. MOTIVAȚIA</div><p class="text-sm mt-1">${rec.reason}</p></div><div class="p-4 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">C. PLANUL DE ACȚIUNE</div><p class="text-sm mt-1 font-mono">${rec.action}</p></div>`; recommendationOutput.classList.remove('animate-fadeIn'); void recommendationOutput.offsetWidth; recommendationOutput.classList.add('animate-fadeIn'); } adsetSelector.addEventListener('change', (e) => updateSimulator(e.target.value)); updateSimulator('asc_winner'); // --- MOTOR DE REGULI --- const targetRoasSlider = document.getElementById('target-roas-slider'); const maxCpaSlider = document.getElementById('max-cpa-slider'); const targetRoasLabel = document.getElementById('target-roas-label'); const maxCpaLabel = document.getElementById('max-cpa-label'); const rulesOutput = document.getElementById('rules-evaluation-output'); const sampleCampaigns = [ { name: "ASC_Ghete_V1", roas: 3.8, cpa: 35 }, { name: "TEST_Comfort_V3", roas: 1.2, cpa: 85 }, { name: "RMK_14D_ATC", roas: 2.4, cpa: 42 }, { name: "DABA_All_Products", roas: 2.9, cpa: 39 }, ]; function evaluateRules() { const targetRoas = parseFloat(targetRoasSlider.value); const maxCpa = parseInt(maxCpaSlider.value); targetRoasLabel.textContent = `${targetRoas.toFixed(1)}x`; maxCpaLabel.textContent = `${maxCpa} RON`; rulesOutput.innerHTML = ''; sampleCampaigns.forEach(c => { let status, color; if (c.roas >= targetRoas && c.cpa <= maxCpa) { status = "Performant"; color = "green"; } else if (c.roas < targetRoas && c.cpa > maxCpa) { status = "Problemă"; color = "red"; } else { status = "Monitorizează"; color = "amber"; } rulesOutput.innerHTML += `<div class="flex justify-between items-center"><span class="font-mono">${c.name}</span><span class="font-bold text-[color:var(--${color})]">${status}</span></div>`; }); } targetRoasSlider.addEventListener('input', evaluateRules); maxCpaSlider.addEventListener('input', evaluateRules); evaluateRules(); // --- GENERATOR RECOMANDĂRI CREATIVE cu GEMINI API --- const creativeInput = document.getElementById('creative-name-input'); const creativeContext = document.getElementById('creative-context-output'); const creativeRecs = document.getElementById('creative-recommendations-output'); const generateCreativeBtn = document.getElementById('generate-creative-btn'); async function getCreativeSuggestionsFromGemini(context) { generateCreativeBtn.disabled = true; creativeRecs.innerHTML = `<div class="flex items-center justify-center h-full"><div class="loader w-8 h-8 rounded-full"></div></div>`; const apiKey = ""; const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`; const systemPrompt = "Ești un expert în marketing digital specializat în reclame pe Meta (Facebook/Instagram) pentru branduri de e-commerce din România. Răspunsurile tale trebuie să fie creative, concise, direct aplicabile și în limba română. Oprește-te din a folosi markdown."; const userPrompt = `Generează recomandări creative pentru un ad cu următorul context: Tip campanie: ${context.tip}, Produs: ${context.produs}, Unghi de abordare: ${context.unghi}, Format: ${context.format}.`; const payload = { contents: [{ parts: [{ text: userPrompt }] }], systemInstruction: { parts: [{ text: systemPrompt }] }, generationConfig: { responseMimeType: "application/json", responseSchema: { type: "OBJECT", properties: { copy: { type: "ARRAY", items: {type: "STRING"} }, headlines: { type: "ARRAY", items: {type: "STRING"} }, visual: { type: "STRING" } } } } }; try { const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }); if (!response.ok) { throw new Error(`API call failed with status: ${response.status}`); } const result = await response.json(); const candidate = result.candidates?.[0]; const jsonText = candidate?.content?.parts?.[0]?.text; if (jsonText) { const parsedJson = JSON.parse(jsonText); creativeRecs.innerHTML = `<div class="p-3 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">Texte (Copy)</div><ul class="text-sm mt-1 list-disc list-inside">${(parsedJson.copy || []).map(c => `<li>${c}</li>`).join('')}</ul></div><div class="p-3 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">Titluri (Headlines)</div><ul class="text-sm mt-1 list-disc list-inside">${(parsedJson.headlines || []).map(h => `<li>${h}</li>`).join('')}</ul></div><div class="p-3 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">Vizual</div><p class="text-sm mt-1">${parsedJson.visual || 'N/A'}</p></div>`; } else { throw new Error("No content found in API response."); } } catch (error) { console.error("Error calling Gemini API:", error); creativeRecs.innerHTML = `<div class="p-3 bg-red-900/50 rounded-lg text-red-300">A apărut o eroare la generarea recomandărilor. Te rugăm să încerci din nou.</div>`; } finally { generateCreativeBtn.disabled = false; } } function parseAndDisplayContext() { const raw = (creativeInput.value || '').trim(); const parts = raw.split('_'); const context = { tip: parts[0] || 'N/A', produs: (parts[1] || 'produs').replace(/-/g, ' '), unghi: (parts[2] || 'calitate').replace(/-/g, ' '), format: parts[3] || 'IMG' }; creativeContext.textContent = JSON.stringify(context, null, 2); return context; } generateCreativeBtn.addEventListener('click', () => { const context = parseAndDisplayContext(); getCreativeSuggestionsFromGemini(context); }); parseAndDisplayContext(); // --- INTERACTIVE ROADMAP --- const timelineNav = document.getElementById('timeline-nav'); const roadmapContentDisplay = document.getElementById('roadmap-content-display'); const roadmapData = { v1_1: { title: 'V1.1: Acțiuni Automate', description: 'Elimină complet munca manuală. Odată ce ai validat o recomandare, ROASIN o poate aplica direct în contul tău de Meta Ads (ex: pauzarea unui ad set, creșterea bugetului) cu un singur click.', visual: '<div class="p-4 border-2 border-dashed border-[color:var(--stroke)] rounded-lg text-center"><p class="text-sm text-[color:var(--muted)]">Mockup: O listă de ad set-uri cu un buton</p><button class="mt-2 bg-green-500 text-white font-bold py-2 px-4 rounded-lg">Aplică Recomandarea</button></div>' }, v1_2: { title: 'V1.2: Custom Rule Builder', description: 'Putere maximă pentru utilizatorii avansați. Vei putea crea reguli complexe, cu multiple condiții (ex: "dacă ROAS > 3 ȘI spend > 200 RON ȘI frecvența < 2, atunci..."), permițând o automatizare și mai granulară a contului.', visual: '<div class="p-4 border-2 border-dashed border-[color:var(--stroke)] rounded-lg"><p class="text-sm text-[color:var(--muted)]">Mockup: Editor de reguli</p><div class="mt-2 font-mono text-xs bg-black/50 p-2 rounded">IF <span class="text-blue-400">roas</span> > <span class="text-amber-400">3.0</span> AND <span class="text-blue-400">spend</span> > <span class="text-amber-400">200</span> ...</div></div>' }, v1_3: { title: 'V1.3: Simulator de Decizii', description: 'Funcția de prognoză a ROASIN. Înainte de a scala un ad set, simulatorul va folosi date istorice pentru a estima impactul probabil asupra performanței în următoarele 3 zile, ajutându-te să iei decizii mai informate.', visual: '<div class="p-4 border-2 border-dashed border-[color:var(--stroke)] rounded-lg"><p class="text-sm text-[color:var(--muted)]">Mockup: Grafic predictiv</p><div class="mt-2 h-24 w-full bg-black/50 rounded flex items-end"><div class="w-1/2 h-1/2 bg-blue-500/50"></div><div class="w-1/2 h-3/4 bg-green-500/50 border-l-2 border-dashed border-green-300"></div></div></div>' }, v2_0: { title: 'V2.0: Suport Multi-Platformă', description: 'ROASIN devine centrul tău de comandă pentru performance marketing. Vom integra Google Ads și TikTok Ads, permițându-ți să aplici aceeași filozofie de "decision-intelligence" pe toate canalele tale principale.', visual: '<div class="p-4 border-2 border-dashed border-[color:var(--stroke)] rounded-lg flex items-center justify-around"><span class="text-3xl">META</span><span class="text-3xl">G</span><span class="text-3xl">TT</span></div>' }, }; function updateRoadmap(version) { const data = roadmapData[version]; if (!data) return; roadmapContentDisplay.innerHTML = `<h4 class="text-lg font-bold text-[color:var(--orange)]">${data.title}</h4><p class="mt-2 text-sm text-[color:var(--muted)]">${data.description}</p><div class="mt-4">${data.visual}</div>`; timelineNav.querySelectorAll('button').forEach(btn => { btn.classList.toggle('active', btn.dataset.version === version); }); roadmapContentDisplay.classList.remove('animate-fadeIn'); void roadmapContentDisplay.offsetWidth; roadmapContentDisplay.classList.add('animate-fadeIn'); } timelineNav.addEventListener('click', (e) => { if (e.target.tagName === 'BUTTON') { updateRoadmap(e.target.dataset.version); } }); updateRoadmap('v1_1'); // --- BLUEPRINT ANDROMEDA --- const evaluateBtn = document.getElementById('evaluate-btn'); const campaignTreeContainer = document.getElementById('campaign-tree'); const aiStatusIndicator = document.getElementById('ai-status-indicator'); const aiStatusText = document.getElementById('ai-status-text'); const blueprintModal = document.getElementById('blueprint-modal'); const campaignBlueprintData = [ { name: 'stvg.CreativeLab – Purchase', type: 'campaign', children: [ { name: 'stvg.ADSET.Testare-Unghiuri', type: 'adset', children: [ // 1. SCALE example (ROAS > 4, CPA < 40) { name: 'stvg.IMG – Outdoor – CityWalk', type: 'ad', roas: 4.50, cpa: 35, spend: 3000 }, // 2. KILL example (ROAS < 1, spend > 150) { name: 'stvg.IMG – Magazin – Eșec', type: 'ad', roas: 0.90, cpa: 110, spend: 400 }, // 3. WAIT example (ROAS between 1.5 and 2.8, or low spend) { name: 'stvg.IMG – Studio – Bej Cosulet', type: 'ad', roas: 1.80, cpa: 78, spend: 100 }, // 4. LOWER BUDGET example (ROAS 2.5-3.5, CPA > 50) { name: 'stvg.IMG – Lifestyle – OfficeDay', type: 'ad', roas: 2.90, cpa: 52, spend: 500 }, // 5. PROMOTE example (special case) { name: 'stvg.IMG – Metrou – Adorabile', type: 'ad', roas: 3.10, cpa: 45, spend: 500 } ]} ]}, { name: 'stvg.Main – Scaler', type: 'campaign', children: [ { name: 'stvg.ADSET.Broad – Purchase', type: 'adset', children: []} ]}, { name: 'stvg.DABA – Catalog', type: 'campaign', children: [ { name: 'stvg.ADSET.AllProducts', type: 'adset', children: [] } ]}, { name: 'stvg.Retarget – Warm', type: 'campaign', children: [ { name: 'stvg.ADSET.RTG.7-14d.ViewContent+ATC', type: 'adset', children: []} ]}, ]; let flatBlueprintDataStore = {}; function flattenData(items, parentPath = '') { items.forEach((item, index) => { const path = parentPath ? `${parentPath}-${index}` : `${index}`; item.path = path; flatBlueprintDataStore[path] = item; if (item.children) { flattenData(item.children, path); } }); } flattenData(campaignBlueprintData); function getDecision(item) { let decision = {}; if (!item.roas) { return { label: "", color: "transparent" }; } // 5. Promote (Special case) if(item.name.includes("Metrou – Adorabile")) { decision = { label: "PROMOVEAZĂ", color: "purple", reason: "Creativ cu performanță excepțională în Creative Lab (ROAS > 3, CPA sub target). A validat un unghi nou.", actionPlan: "Extrage Post ID-ul și adaugă-l într-un nou ad în campania 'stvg.Main – Scaler'. Setează un buget inițial de 200 RON/zi." }; } // 1. Scale else if (item.roas > 4.0 && item.cpa < 40) { decision = { label: "SCALE", color: "green", reason: `ROAS excelent de ${item.roas.toFixed(2)}x, mult peste pragul de profitabilitate, și CPA eficient.`, actionPlan: `Crește bugetul cu 20%. Monitorizează frecvența în următoarele 3 zile.` }; } // 2. Kill else if (item.roas < 1.0 && item.spend > 150) { decision = { label: "KILL", color: "red", reason: `ROAS subunitar (${item.roas.toFixed(2)}x) după un spend semnificativ. Nu este profitabil.`, actionPlan: "Oprește imediat. Analizează audiența și creativul pentru a înțelege cauza eșecului." }; } // 4. Lower Budget else if (item.roas >= 2.5 && item.roas < 3.5 && item.cpa > 50) { decision = { label: "LOWER BUDGET", color: "orange", reason: `ROAS-ul este la limită (${item.roas.toFixed(2)}x), dar CPA-ul de ${item.cpa} RON este în creștere și depășește pragul de eficiență.`, actionPlan: "Redu bugetul cu 15% pentru a recăpăta controlul asupra CPA-ului. Dacă performanța nu se îmbunătățește în 48h, oprește." }; } // 3. Wait else { decision = { label: "WAIT", color: "amber", reason: "Performanță medie sau date insuficiente. Necesită mai mult timp pentru o decizie clară.", actionPlan: "Menține bugetul actual. Monitorizează CPA și ROAS în următoarele 24-48 de ore." }; } item.reason = decision.reason; item.actionPlan = decision.actionPlan; return decision; } function renderBlueprintNode(item, level = 0, isEvaluation = false) { const itemDiv = document.createElement('div'); const typeClass = `type-${item.type}`; itemDiv.className = `blueprint-item flex justify-between items-center transition-all duration-300 py-2 rounded ${typeClass}`; const nameSpan = document.createElement('span'); nameSpan.style.paddingLeft = `${level * 1.5}rem`; nameSpan.textContent = item.name.replace(/–/g, '– '); itemDiv.appendChild(nameSpan); const resultsContainer = document.createElement('div'); resultsContainer.className = 'results-container text-xs'; itemDiv.appendChild(resultsContainer); if (isEvaluation && item.roas !== undefined) { const decision = getDecision(item); resultsContainer.classList.add('opacity-0', 'transition-opacity', 'duration-500'); resultsContainer.innerHTML = ` <span class="inline-block w-24 text-right"><span class="text-[color:var(--muted)]">ROAS:</span> <span class="font-bold ${decision.color === 'green' ? 'text-green-400' : ''}">${item.roas.toFixed(2)}x</span></span> <span class="inline-block w-24 text-right"><span class="text-[color:var(--muted)]">CPA:</span> <span class="font-bold">${item.cpa} RON</span></span> <span class="inline-block w-28 text-right"><span class="text-[color:var(--muted)]">Spend:</span> <span class="font-bold">${item.spend} RON</span></span> <span class="inline-block w-28 text-right"> <button data-path="${item.path}" class="blueprint-details-btn ml-4 text-xs font-bold py-1 px-2 rounded-full text-white cursor-pointer" style="background-color: var(--${decision.color})">${decision.label}</button> </span> `; } campaignTreeContainer.appendChild(itemDiv); if (item.children) { item.children.forEach(child => renderBlueprintNode(child, level + 1, isEvaluation)); } } function displayInitialBlueprint() { campaignTreeContainer.innerHTML = ''; aiStatusText.textContent = 'În așteptare'; aiStatusIndicator.style.backgroundColor = 'var(--muted)'; aiStatusIndicator.classList.remove('animate-pulse'); campaignBlueprintData.forEach(campaign => renderBlueprintNode(campaign, 0, false)); } evaluateBtn.addEventListener('click', () => { evaluateBtn.disabled = true; campaignTreeContainer.innerHTML = ''; campaignBlueprintData.forEach(campaign => renderBlueprintNode(campaign, 0, true)); aiStatusText.textContent = 'Analizez...'; aiStatusIndicator.style.backgroundColor = 'var(--amber)'; aiStatusIndicator.classList.add('animate-pulse'); const items = campaignTreeContainer.querySelectorAll('.blueprint-item'); items.forEach((item, index) => { setTimeout(() => { item.classList.add('scanning'); const result = item.querySelector('.results-container'); if (result) { result.classList.remove('opacity-0'); result.classList.add('opacity-100'); } setTimeout(() => item.classList.remove('scanning'), 400); if(index === items.length - 1) { aiStatusText.textContent = 'Analiză Completă'; aiStatusIndicator.style.backgroundColor = 'var(--green)'; aiStatusIndicator.classList.remove('animate-pulse'); evaluateBtn.disabled = false; } }, index * 100); }); }); campaignTreeContainer.addEventListener('click', (e) => { const btn = e.target.closest('.blueprint-details-btn'); if (!btn) return; const item = flatBlueprintDataStore[btn.dataset.path]; if (item) { const decision = getDecision(item); blueprintModal.innerHTML = ` <div class="glass rounded-2xl w-full max-w-lg p-6 relative animate-fadeIn"> <button id="close-blueprint-modal" class="absolute top-4 right-4 text-2xl text-[color:var(--muted)] hover:text-white">&times;</button> <h3 class="text-xl font-bold mb-1">${item.name}</h3> <div class="mt-6 space-y-4"> <div class="p-4 bg-gray-800/50 rounded-lg border-l-4" style="border-color: var(--${decision.color})"> <div class="font-bold text-sm" style="color: var(--${decision.color})">DECIZIA</div> <p class="text-lg font-extrabold">${decision.label}</p> </div> <div class="p-4 bg-gray-800/50 rounded-lg"> <div class="font-bold text-sm text-[color:var(--muted)]">MOTIVAȚIA (Reason)</div> <p class="text-sm mt-1">${item.reason}</p> </div> <div class="p-4 bg-gray-800/50 rounded-lg"> <div class="font-bold text-sm text-[color:var(--muted)]">PLAN DE ACȚIUNE</div> <p class="text-sm mt-1 font-mono">${item.actionPlan}</p> </div> </div> </div>`; blueprintModal.classList.remove('hidden'); blueprintModal.classList.add('flex'); document.getElementById('close-blueprint-modal').addEventListener('click', () => { blueprintModal.classList.add('hidden'); blueprintModal.classList.remove('flex'); }); } }); blueprintModal.addEventListener('click', (e) => { if (e.target === blueprintModal) { blueprintModal.classList.add('hidden'); blueprintModal.classList.remove('flex'); } }); displayInitialBlueprint(); // --- DECISION ENGINE --- const decisionEngineTable = document.getElementById('decision-engine-table'); const decisionEngineSummary = document.getElementById('decision-engine-summary'); const explainAiBtn = document.getElementById('explain-ai-btn'); const aiExplainerModal = document.getElementById('ai-explainer-modal'); const aiExplainerContent = document.getElementById('ai-explainer-content'); const closeAiExplainerModalBtn = document.getElementById('close-ai-explainer-modal'); const decisionEngineData = [ // 5. Promote { name: 'TEST | Metrou Adorabile', roas: 4.1, cpa: 38, isPromote: true }, // 1. Scale { name: 'RET | Loafers (DABA)', roas: 9.43, cpa: 26.50 }, // 4. Lower Budget { name: 'TEST | Office Elegance', roas: 3.2, cpa: 55 }, // 3. Wait { name: 'TEST | Street Comfort', roas: 2.1, cpa: 60, spend: 120 }, // 2. Kill { name: 'PROD | Boots (DABA)', roas: 0.9, cpa: 180, spend: 180 }, ]; let processedDecisionEngineData = []; function getDecisionForEngine(item) { let decision = { label: "Wait", color: "amber" }; // Default to Wait if (item.isPromote) { decision = { label: "Promote", color: "purple" }; } else if (item.roas > 4.0 && item.cpa < 40) { decision = { label: "Scale +20%", color: "green" }; } else if (item.roas < 1.5 && (item.spend !== undefined && item.spend > 150)) { decision = { label: "Kill", color: "red" }; } else if (item.roas >= 2.5 && item.roas < 3.5 && item.cpa > 50) { decision = { label: "Lower Budget -15%", color: "orange" }; } return decision; } function runDecisionEngine() { processedDecisionEngineData = []; decisionEngineTable.innerHTML = ''; const header = document.createElement('div'); header.className = 'grid grid-cols-12 gap-4 font-bold text-xs text-[color:var(--muted)] px-4 py-2'; header.innerHTML = ` <span class="col-span-5">Campaign Name</span> <span class="col-span-2 text-right">CPA</span> <span class="col-span-2 text-right">ROAS</span> <span class="col-span-3">Recommendation</span> `; decisionEngineTable.appendChild(header); decisionEngineData.forEach((item, index) => { const rec = getDecisionForEngine(item); processedDecisionEngineData.push({ ...item, recommendation: rec }); const itemDiv = document.createElement('div'); itemDiv.className = `grid grid-cols-12 gap-4 items-center bg-gray-800/30 hover:bg-gray-800/60 p-4 rounded-lg transition-colors border-l-4 border-transparent cursor-pointer decision-item`; itemDiv.dataset.index = index; itemDiv.innerHTML = ` <span class="col-span-5 font-semibold">${item.name}</span> <span class="col-span-2 text-right">${item.cpa.toFixed(2)} RON</span> <span class="col-span-2 text-right">${item.roas.toFixed(2)}x</span> <span class="col-span-3 font-semibold text-[color:var(--${rec.color})]">${rec.label}</span> `; decisionEngineTable.appendChild(itemDiv); }); updateDecisionSummary(); // Initial summary } function updateDecisionSummary(selectedIndex = -1){ if (selectedIndex === -1) { decisionEngineSummary.innerHTML = ` <h4 class="font-bold">Sumar & Recomandări</h4> <p class="mt-2 text-sm text-[color:var(--muted)]">Selectează o campanie din stânga pentru a vedea recomandarea detaliată.</p> `; return; } const item = processedDecisionEngineData[selectedIndex]; let recommendationText = ''; switch(item.recommendation.label) { case 'Scale +20%': recommendationText = `Campania <strong>'${item.name}'</strong> are o performanță excelentă. Cu un ROAS de ${item.roas.toFixed(2)}x și CPA de ${item.cpa.toFixed(2)} RON, recomandarea este să <strong>crești bugetul cu 20%</strong> pentru a maximiza profitul.`; break; case 'Wait': recommendationText = `Campania <strong>'${item.name}'</strong> are o performanță stabilă, dar nu excepțională. Recomandarea este să <strong>menții bugetul actual</strong> și să continui monitorizarea pentru încă 24-48h.`; break; case 'Kill': recommendationText = `Atenție la campania <strong>'${item.name}'</strong>. Performanța este slabă, cu un ROAS subunitar și un CPA foarte mare. Recomandarea este să <strong>oprești campania imediat</strong> pentru a limita pierderile.`; break; case 'Lower Budget -15%': recommendationText = `Campania <strong>'${item.name}'</strong> este la limită. ROAS-ul este profitabil, dar CPA-ul este peste target. Recomandarea este să <strong>reduci bugetul cu 15%</strong> pentru a recâștiga controlul asupra costurilor.`; break; case 'Promote': recommendationText = `Felicitări! Creativul <strong>'${item.name}'</strong> din Creative Lab a validat un unghi nou. Recomandarea este să <strong>extrage Post ID-ul și să-l promovezi</strong> într-o campanie de scalare (ASC) pentru a capitaliza succesul.`; break; } decisionEngineSummary.innerHTML = ` <h4 class="font-bold">Recomandare pentru:</h4> <p class="font-semibold text-white text-sm">${item.name}</p> <div class="mt-4 text-sm text-[color:var(--muted)] space-y-2"> <p>${recommendationText}</p> </div> `; } async function getAiExplanation() { explainAiBtn.disabled = true; aiExplainerContent.innerHTML = `<div class="flex items-center justify-center h-full"><div class="loader w-8 h-8 rounded-full"></div></div>`; aiExplainerModal.classList.remove('hidden'); aiExplainerModal.classList.add('flex'); const apiKey = ""; const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`; const systemPrompt = "Ești un strateg de marketing digital. Analizezi o listă de campanii și recomandări automate și oferi un sumar strategic concis în limba română. Explică logica generală și focusul principal pentru următoarele 24 de ore."; let decisionsSummary = "Iată deciziile automate pentru campaniile mele:\n"; processedDecisionEngineData.forEach(item => { decisionsSummary += `- ${item.name}: CPA ${item.cpa.toFixed(2)} RON, ROAS ${item.roas.toFixed(2)}x. Recomandare: ${item.recommendation.label}.\n`; }); const userPrompt = `${decisionsSummary}\n\nExplică strategia generală pe baza acestor decizii, ce indică despre sănătatea contului și care ar trebui să fie focusul imediat.`; const payload = { contents: [{ parts: [{ text: userPrompt }] }], systemInstruction: { parts: [{ text: systemPrompt }] } }; try { const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) }); if (!response.ok) { throw new Error(`API call failed with status: ${response.status}`); } const result = await response.json(); const text = result.candidates?.[0]?.content?.parts?.[0]?.text; if (text) { aiExplainerContent.innerHTML = `<p>${text.replace(/\n/g, '<br>')}</p>`; } else { throw new Error("No content in API response."); } } catch (error) { console.error("Error calling Gemini API for explanation:", error); aiExplainerContent.innerHTML = `<p class="text-red-400">A apărut o eroare la generarea explicației. Te rugăm să încerci din nou.</p>`; } finally { explainAiBtn.disabled = false; } } explainAiBtn.addEventListener('click', getAiExplanation); if (closeAiExplainerModalBtn) { closeAiExplainerModalBtn.addEventListener('click', () => { aiExplainerModal.classList.add('hidden'); aiExplainerModal.classList.remove('flex'); }); } aiExplainerModal.addEventListener('click', (e) => { if (e.target === aiExplainerModal) { aiExplainerModal.classList.add('hidden'); aiExplainerModal.classList.remove('flex'); }}); decisionEngineTable.addEventListener('click', (e) => { const item = e.target.closest('.decision-item'); if (item) { document.querySelectorAll('.decision-item').forEach(el => el.style.borderColor = 'transparent'); item.style.borderColor = `var(--${processedDecisionEngineData[item.dataset.index].recommendation.color})`; updateDecisionSummary(parseInt(item.dataset.index)); } }); runDecisionEngine(); // --- PROFIT ENGINE --- const runProfitEngineBtn = document.getElementById('run-profit-engine-btn'); const profitEngineFlow = document.getElementById('profit-engine-flow'); function runProfitEngine() { runProfitEngineBtn.disabled = true; profitEngineFlow.innerHTML = ` <div class="opacity-0 transition-opacity duration-500"> <h4 class="font-bold text-lg text-center">⚙️ 1. INPUT: Date brute din campanii</h4> <p class="text-sm text-center text-[color:var(--muted)]">ROASIN preia datele direct din Meta Ads.</p> </div> <div class="text-center text-2xl opacity-0 transition-opacity duration-500">↓</div> <div class="opacity-0 transition-opacity duration-500"> <h4 class="font-bold text-lg text-center">🧮 2. CALCULE: GPT și GPV</h4> <p class="text-sm text-center text-[color:var(--muted)]">Calculăm profitul real, nu doar veniturile.</p> </div> <div class="text-center text-2xl opacity-0 transition-opacity duration-500">↓</div> <div class="opacity-0 transition-opacity duration-500"> <h4 class="font-bold text-lg text-center">🔍 3. DECIZIE LOGICĂ</h4> <p class="text-sm text-center text-[color:var(--muted)]">Aplicăm reguli bazate pe profit pentru a clasifica fiecare campanie.</p> </div> <div class="text-center text-2xl opacity-0 transition-opacity duration-500">↓</div> <div class="opacity-0 transition-opacity duration-500"> <h4 class="font-bold text-lg text-center">📈 4. OUTPUT: Rezultate și Recomandări</h4> <p class="text-sm text-center text-[color:var(--muted)]">Primești o listă clară de acțiuni.</p> </div> <div class="text-center mt-4 opacity-0 transition-opacity duration-500"> <button id="profit-explain-btn" class="font-semibold text-sm py-2 px-4 rounded-full border border-[color:var(--stroke)] hover:bg-white/5 transition-colors flex items-center gap-2 mx-auto"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-purple-400"><path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" /></svg> Explain (AI) </button> </div> `; const steps = profitEngineFlow.querySelectorAll('div, button'); steps.forEach((step, index) => { setTimeout(() => { step.classList.remove('opacity-0'); if (index === steps.length - 1) { runProfitEngineBtn.disabled = false; document.getElementById('profit-explain-btn').addEventListener('click', () => { // This would call another Gemini function for profit summary alert("Acest buton ar chema API-ul Gemini pentru a explica sumarul de profitabilitate."); }); } }, index * 400); }); } runProfitEngineBtn.addEventListener('click', runProfitEngine); }); </script> </body> </html>
+
+<!DOCTYPE html>
+<html lang="ro" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ROASIN — Documentație Completă și Interactivă v2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0B0F14; --panel:#0f151d; --glass:rgba(17, 24, 39, 0.7); --stroke:rgba(43, 56, 71, 0.8); --text:#E6EDF6; --muted:#9AA8B5;
+      --orange:#FF6A3D; --orange-hover:#ff5a26; --green:#12b76a; --amber:#f59e0b; --red:#ef4444; --blue:#3b82f6; --purple:#8b5cf6;
+    }
+    body{
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto; color:var(--text);
+      background:radial-gradient(1200px 800px at 100% -10%, rgba(255,106,61,.08), transparent 55%),
+                 radial-gradient(1000px 700px at -10% 120%, rgba(255,106,61,.06), transparent 55%), var(--bg);
+    }
+    .glass{background:var(--glass); border:1px solid var(--stroke); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .title{font-weight:900; letter-spacing:-.02em}
+    .kicker{font-weight: 800; letter-spacing: 0.1em; color: var(--orange); text-transform: uppercase;}
+    .section-spacing { margin-top: 6rem; }
+    .highlight{ background: linear-gradient(to right, var(--orange), var(--orange-hover)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700;}
+    
+    .meter-bar, .rules-bar { transition: width 0.5s ease-out; }
+
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .animate-fadeIn { animation: fadeIn 0.5s ease-out forwards; }
+
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .loader {
+        border: 2px solid var(--stroke);
+        border-top-color: var(--orange);
+        animation: spin 1s linear infinite;
+    }
+
+    input[type=range] { -webkit-appearance: none; background: transparent; width: 100%;}
+    input[type=range]:focus { outline: none; }
+    input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 6px; cursor: pointer; background: var(--stroke); border-radius: 3px; }
+    input[type=range]::-webkit-slider-thumb { height: 18px; width: 18px; border-radius: 50%; background: var(--orange); cursor: pointer; -webkit-appearance: none; margin-top: -6px; box-shadow: 0 0 5px rgba(255,106,61,.5); }
+    input[type=range]::-moz-range-track { width: 100%; height: 6px; cursor: pointer; background: var(--stroke); border-radius: 3px; }
+    input[type=range]::-moz-range-thumb { height: 18px; width: 18px; border-radius: 50%; background: var(--orange); cursor: pointer; border:none; box-shadow: 0 0 5px rgba(255,106,61,.5); }
+    .timeline-item.active { background-color: var(--orange); color: white; }
+    .timeline-item { transition: all 0.2s ease-in-out; }
+    .btn-primary{background:linear-gradient(180deg, var(--orange), var(--orange-hover)); border-color:transparent; color:white; transition: all 0.2s ease-in-out; }
+    .btn-primary:hover{transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255,106,61,.2);}
+    .btn-primary:disabled { background: var(--stroke); color: var(--muted); cursor: not-allowed; transform: none; box-shadow: none; }
+    
+    /* New styles for blueprint structure */
+    .blueprint-item.scanning { background-color: rgba(255, 106, 61, 0.1); }
+    .type-campaign {
+        font-weight: bold;
+        color: white;
+        padding-top: 0.75rem;
+        padding-bottom: 0.25rem;
+        border-top: 1px solid var(--stroke);
+    }
+    .type-campaign:first-child {
+        padding-top: 0;
+        border-top: none;
+    }
+     .type-adset {
+        color: var(--muted);
+    }
+    .type-ad {
+        color: var(--text);
+    }
+  </style>
+</head>
+<body class="transition-all duration-300">
+  
+  <main class="max-w-5xl mx-auto p-4 sm:p-6 md:p-8">
+
+    <!-- INTRODUCERE -->
+    <section id="intro" class="text-center">
+        <div class="kicker text-sm">VIZIUNEA ROASIN</div>
+        <h1 class="text-4xl md:text-6xl title mt-4">De la Date la Decizie. Instantaneu.</h1>
+        <p class="mt-6 text-lg text-[color:var(--muted)] max-w-3xl mx-auto">Bun venit la documentația completă a ROASIN. Această pagină combină o <span class="text-white">explicație interactivă</span> a conceptelor cheie cu <span class="text-white">detaliile complete</span> din Product Requirements Document (PRD) pentru a oferi o imagine de ansamblu completă a produsului.</p>
+    </section>
+
+    <!-- ANDROMEDA FRAMEWORK -->
+    <section id="andromeda" class="section-spacing">
+        <div class="text-center">
+            <div class="kicker text-sm">STRATEGIA (UPDATE-UL ANDROMEDA)</div>
+            <h2 class="text-3xl md:text-4xl title mt-4">Noul Model de Scalare: Andromeda</h2>
+            <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Andromeda este o filozofie de management care prioritizează testarea creativă și scalarea prin Advantage+ Shopping (ASC). ROASIN este construit pentru a automatiza și optimiza acest flux.</p>
+        </div>
+        <div class="mt-8 glass rounded-2xl p-8">
+            <h3 class="text-xl font-bold text-center">Fluxul de Performanță Andromeda</h3>
+            <div class="mt-6 flex flex-col md:flex-row items-center justify-center space-y-6 md:space-y-0 md:space-x-6 text-center">
+                <div class="glass rounded-xl p-6 border-l-4 border-[color:var(--amber)] flex-1"><div class="text-2xl">🧪</div><h4 class="font-bold mt-2">1. Creative Lab (TEST)</h4><p class="text-sm text-[color:var(--muted)] mt-1">Campanii manuale, cu buget redus, unde se testează constant noi unghiuri creative, formate și mesaje.</p></div>
+                <div class="text-3xl font-thin text-[color:var(--muted)] transform md:-translate-y-4"><span class="block md:hidden">↓</span> <span class="hidden md:block">→</span><div class="text-sm font-bold">Promovăm Câștigătorii</div></div>
+                <div class="glass rounded-xl p-6 border-l-4 border-[color:var(--green)] flex-1"><div class="text-2xl">🚀</div><h4 class="font-bold mt-2">2. Core Scaling (ASC)</h4><p class="text-sm text-[color:var(--muted)] mt-1">Creativele validate în "Lab" sunt mutate în campanii Advantage+ Shopping, unde AI-ul Meta le scalează la potențial maxim.</p></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- BLUEPRINT ANDROMEDA -->
+    <section id="andromeda-blueprint" class="section-spacing">
+        <div class="text-center">
+             <div class="kicker text-sm">EXEMPLU PRACTIC</div>
+            <h2 class="text-3xl md:text-4xl title mt-4">Blueprint-ul Andromeda: AI în Acțiune</h2>
+             <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Mai jos este o reprezentare vizuală a unei structuri de cont Andromeda. Apasă pe buton pentru a simula cum AI Assistant-ul ROASIN evaluează fiecare element și oferă recomandări clare, bazate pe performanță.</p>
+        </div>
+        <div class="mt-8 glass rounded-2xl p-6 md:p-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+                 <div id="ai-status-container" class="flex items-center gap-2 text-sm font-semibold text-[color:var(--muted)]">
+                    <span id="ai-status-indicator" class="w-3 h-3 rounded-full bg-gray-500 transition-colors"></span>
+                    <span id="ai-status-text">În așteptare</span>
+                </div>
+                <button id="evaluate-btn" class="btn-primary font-bold py-3 px-6 rounded-full flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5"><path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 01-9.204 2.153a.75.75 0 00-1.06-1.06l-2.475 2.475a.75.75 0 000 1.06l2.475 2.475a.75.75 0 001.06-1.06l-1.09-1.09A7 7 0 0016.95 13.5a.75.75 0 00-1.06-1.06l-1.09 1.09a5.5 5.5 0 01-2.153-2.105l4.28-4.28a.75.75 0 10-1.06-1.06l-4.28 4.28zM5.78 4.22a.75.75 0 00-1.06 1.06l1.09 1.09A5.5 5.5 0 003.05 8.5a.75.75 0 001.06 1.06l1.09-1.09a7 7 0 0110.665-3.535.75.75 0 001.06-1.06l2.475-2.475a.75.75 0 00-1.06-1.06L16.4 3.175a.75.75 0 00-1.06 1.06l1.09 1.09a5.5 5.5 0 00-9.514-1.106L5.78 4.22z" clip-rule="evenodd" /></svg>
+                    Evaluează Performanța
+                </button>
+            </div>
+            <div id="campaign-tree" class="font-mono text-sm space-y-1 bg-gray-900/50 p-4 rounded-lg">
+                <!-- JS will populate this -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SIMULATORUL DE DECIZIE -->
+    <section id="simulator" class="section-spacing">
+        <div class="text-center">
+            <div class="kicker text-sm">MOTORUL ROASIN ÎN ACȚIUNE</div>
+            <h2 class="text-3xl md:text-4xl title mt-4">Simulatorul de Decizie Interactiv</h2>
+            <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Selectează un ad set de mai jos pentru a vedea exact cum îl analizează motorul ROASIN. Observă cum se schimbă "ingredientele" AI-ului și recomandarea finală.</p>
+        </div>
+        <div class="mt-8 glass rounded-2xl p-6 md:p-8">
+            <div class="mb-6"><label for="adset-selector" class="font-semibold mb-2 block">Alege un Ad Set pentru Simulare:</label><select id="adset-selector" class="w-full bg-gray-900/50 border border-[color:var(--stroke)] rounded-xl px-4 py-3 outline-none focus:border-[color:var(--orange)] transition-colors"><option value="asc_winner">ASC_Ghete-Iarna_V1 (Câștigător Stabil)</option><option value="test_loser">TEST_Hook-Confort_VID (Eșec Clar)</option><option value="rmk_borderline">RMK_14D-ATC_V2 (Caz la Limitâ)</option></select></div>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1">
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-lg">"Ingredientele" Analizate de AI</h3>
+                        <div class="meter"><label class="text-sm font-semibold flex justify-between">ROAS vs. Target <span id="roas-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="roas-bar" class="bg-gradient-to-r from-green-500 to-green-400 h-2.5 rounded-full meter-bar"></div></div></div>
+                        <div class="meter"><label class="text-sm font-semibold flex justify-between">Stabilitatea Performanței <span id="stability-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="stability-bar" class="bg-gradient-to-r from-blue-500 to-blue-400 h-2.5 rounded-full meter-bar"></div></div></div>
+                        <div class="meter"><label class="text-sm font-semibold flex justify-between">Eficiența Bugetului <span id="budget-val"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="budget-bar" class="bg-gradient-to-r from-amber-500 to-amber-400 h-2.5 rounded-full meter-bar"></div></div></div>
+                        <div class="meter"><label class="text-sm font-semibold flex justify-between">Context Andromeda <span id="context-val" class="text-xs font-mono"></span></label><div class="w-full bg-gray-700 rounded-full h-2.5 mt-1"><div id="context-bar" class="bg-gradient-to-r from-orange-500 to-orange-400 h-2.5 rounded-full meter-bar"></div></div></div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-[color:var(--stroke)]">
+                        <label class="text-sm font-semibold flex justify-between">Scor de Încredere <span id="confidence-val" class="font-bold text-lg">0%</span></label>
+                        <div class="w-full bg-gray-700 rounded-full h-4 mt-2 relative">
+                            <div id="confidence-bar" class="bg-gradient-to-r from-purple-500 to-purple-400 h-4 rounded-full meter-bar flex items-center justify-center text-xs font-bold text-white" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-2"><h3 class="font-bold text-lg">Rezultatul Analizei: Recomandare Completă</h3><div id="recommendation-output" class="mt-4 space-y-3 animate-fadeIn"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVANCED FEATURES SECTION -->
+    <section id="advanced-features" class="section-spacing">
+        <div class="text-center">
+             <div class="kicker text-sm">FUNCȚIONALITĂȚI AVANSATE</div>
+            <h2 class="text-3xl md:text-4xl title mt-4">Personalizare și Inteligență Creativă</h2>
+            <p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">ROASIN merge dincolo de simple recomandări. Îți permite să personalizezi motorul de reguli și folosește contextul pentru a oferi sugestii creative valoroase.</p>
+        </div>
+        <div class="mt-8 glass rounded-2xl p-6 md:p-8">
+            <h3 class="font-bold text-xl mb-2">Motorul de Reguli Personalizabil</h3>
+            <p class="text-[color:var(--muted)] text-sm mb-6">Setează-ți propriile praguri de performanță. Motorul va folosi aceste reguli pentru a-ți oferi o imagine de ansamblu instantanee asupra sănătății contului, înainte ca AI-ul să intervină pentru cazurile complexe.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <div class="mb-4"><label class="font-semibold flex justify-between">ROAS Țintă <span id="target-roas-label" class="text-[color:var(--orange)]"></span></label><input type="range" id="target-roas-slider" min="1.0" max="100.0" value="2.5" step="0.5"></div>
+                    <div><label class="font-semibold flex justify-between">CPA Maxim Acceptat <span id="max-cpa-label" class="text-[color:var(--orange)]"></span></label><input type="range" id="max-cpa-slider" min="10" max="100" value="40" step="1"></div>
+                </div>
+                <div class="bg-gray-800/50 p-4 rounded-lg"><h4 class="font-semibold text-sm mb-2">Evaluare Campanii (Live)</h4><div id="rules-evaluation-output" class="space-y-2 text-sm"></div></div>
+            </div>
+        </div>
+        <div class="mt-8 glass rounded-2xl p-6 md:p-8">
+            <h3 class="font-bold text-xl mb-2">Generator de Recomandări Creative cu Gemini AI</h3>
+            <p class="text-[color:var(--muted)] text-sm mb-6">Introdu numele unui ad și apasă butonul. ROASIN extrage contextul și cheamă API-ul Gemini pentru a genera instantaneu propuneri creative unice.</p>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div>
+                    <label for="creative-name-input" class="font-semibold mb-2 block">Nume Ad (ex: TEST_Ghete-Piele_Hook-Durabilitate_VID)</label>
+                    <input id="creative-name-input" class="w-full bg-transparent border border-[color:var(--stroke)] rounded-xl px-4 py-3 outline-none focus:border-[color:var(--orange)] transition-colors" value="TEST_Ghete-Piele_Hook-Durabilitate_VID">
+                    <button id="generate-creative-btn" class="btn-primary font-bold py-2 px-4 rounded-full flex items-center gap-2 mt-4">
+                        ✨ Generează Recomandări AI
+                    </button>
+                    <pre id="creative-context-output" class="mt-4 text-xs p-3 rounded-lg bg-gray-800/50"></pre>
+                </div>
+                <div id="creative-recommendations-output" class="space-y-3 animate-fadeIn min-h-[200px]">
+                    <!-- Gemini response here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRD DETAILS -->
+    <section id="prd-details" class="section-spacing">
+        <div class="text-center"><div class="kicker text-sm">ANEXĂ</div><h2 class="text-3xl md:text-4xl title mt-4">Detalii din Product Requirements Document</h2><p class="mt-4 text-[color:var(--muted)] max-w-3xl mx-auto">Mai jos se regăsesc secțiunile cheie din PRD-ul formal, care stau la baza viziunii și funcționalităților prezentate mai sus.</p></div>
+        <div class="mt-8"><h3 class="text-2xl font-bold text-center mb-6">Audiența Țintă</h3><div class="grid md:grid-cols-2 gap-8"><div class="glass rounded-xl p-6"><h4 class="font-bold text-lg">👩‍💼 Mara, E-commerce Owner</h4><p class="text-sm text-[color:var(--muted)] mt-1">Rulează 3-5 conturi, cu un spend de 5 cifre lunar. Este focusată pe performanță, dar obosită de multitudinea de decizii zilnice.</p><ul class="mt-4 text-sm list-disc list-inside space-y-1"><li>Nevoie: Un co-pilot AI de încredere.</li><li>Metrica: POAS (Profit over Ad Spend) > 2.5.</li><li>Doleanță: Simulare predictivă ("Ce se întâmplă dacă...?").</li></ul></div><div class="glass rounded-xl p-6"><h4 class="font-bold text-lg">👨‍💻 Alex, Freelancer Ambițios</h4><p class="text-sm text-[color:var(--muted)] mt-1">Gestionează 5-7 conturi de client și vrea să livreze rezultate de expert fără a petrece ore în Ads Manager.</p><ul class="mt-4 text-sm list-disc list-inside space-y-1"><li>Nevoie: Acțiuni clare ("Fă asta").</li><li>Justificare: Motivații simple ("Iată de ce").</li><li>Scop: Creșterea propriei expertize și a încrederii clienților.</li></ul></div></div></div>
+        
+        <!-- NEW SECTIONS INSERTED HERE -->
+        <div class="mt-12">
+            <h3 class="text-2xl font-bold text-center mb-6">Ingineria Deciziilor și Conformitate</h3>
+            <div class="space-y-8">
+                <div class="glass rounded-xl p-6">
+                    <h4 class="font-bold text-lg">4. Calculul Scorului de Încredere (Confidence Score)</h4>
+                    <p class="text-sm text-[color:var(--muted)] mt-1">Pentru a face încrederea un factor calculabil, nu abstract, definim formula:</p>
+                    <div class="mt-4 font-mono text-sm bg-gray-800/50 p-4 rounded-lg">
+                        Confidence = (W_volum × S_stabilitate × A_reguli × C_AI)
+                    </div>
+                    <ul class="mt-4 text-sm list-disc list-inside space-y-1 text-[color:var(--muted)]">
+                        <li>Fiecare factor este normalizat între 0 și 1.</li>
+                        <li>Exemplu: O variație mare a performanței (`S_stabilitate` mic) va reduce încrederea finală, chiar dacă certitudinea AI (`C_AI`) este mare.</li>
+                    </ul>
+                </div>
+                <div class="glass rounded-xl p-6">
+                    <h4 class="font-bold text-lg">5. Clarificarea Acurateței Recomandărilor AI</h4>
+                    <p class="text-sm text-[color:var(--muted)] mt-1">Acuratețea va fi măsurată printr-un audit uman expert, lunar, pe un eșantion de 200 de ad set-uri alese aleatoriu.</p>
+                     <p class="mt-2 text-sm text-[color:var(--muted)]">O decizie este considerată <strong>corectă</strong> dacă se potrivește cu acțiunea umană în limita a ±1 nivel (ex: AI recomandă "Wait", expertul alege "Scale" - este o potrivire. AI recomandă "Kill", expertul alege "Scale" - nu este o potrivire).</p>
+                </div>
+                <div class="glass rounded-xl p-6">
+                    <h4 class="font-bold text-lg">6. Conformitate Legală și a Platformelor</h4>
+                    <p class="text-sm text-[color:var(--muted)] mt-1">Sistemul va respecta cu strictețe toți termenii de utilizare ai API-urilor Meta, politicile de date ale Google/OpenAI și reglementările GDPR privind datele de campanie stocate de utilizatori (incluzând dreptul la ștergere și anonimizare).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12"><h3 class="text-2xl font-bold text-center mb-6">Metrici de Succes</h3><div class="glass rounded-xl p-6 overflow-x-auto"><table class="w-full text-left"><thead><tr class="border-b border-[color:var(--stroke)]"><th class="p-3 font-semibold">Metrica de Business</th><th class="p-3 font-semibold">Obiectiv</th></tr></thead><tbody><tr><td class="p-3">POAS Uplift</td><td class="p-3 text-[color:var(--green)] font-semibold">+20% în 14 zile de la adopție</td></tr><tr class="border-t border-[color:var(--stroke)]"><td class="p-3">Viteza Decizională</td><td class="p-3">80% din acțiuni luate în 24h de la sync</td></tr><tr class="border-t border-[color:var(--stroke)]"><td class="p-3">Acuratețea Recomandărilor AI</td><td class="p-3">≥ 85% aliniere cu un audit de expert</td></tr></tbody></table></div></div>
+        
+        <!-- INTERACTIVE ROADMAP -->
+        <div class="mt-12">
+            <h3 class="text-2xl font-bold text-center mb-6">Roadmap Interactiv</h3>
+            <div class="glass rounded-2xl p-6 md:p-8">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="md:col-span-1">
+                        <div id="timeline-nav" class="space-y-2">
+                            <button data-version="v1_1" class="timeline-item w-full text-left font-bold p-3 rounded-lg">V1.1: Acțiuni Automate</button>
+                            <button data-version="v1_2" class="timeline-item w-full text-left font-bold p-3 rounded-lg">V1.2: Custom Rule Builder</button>
+                            <button data-version="v1_3" class="timeline-item w-full text-left font-bold p-3 rounded-lg">V1.3: Simulator de Decizii</button>
+                            <button data-version="v2_0" class="timeline-item w-full text-left font-bold p-3 rounded-lg">V2.0: Suport Multi-Platformă</button>
+                        </div>
+                    </div>
+                    <div id="roadmap-content-display" class="md:col-span-2 bg-gray-800/50 p-6 rounded-lg animate-fadeIn">
+                        <!-- Roadmap content will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL PENTRU DETALII RECOMANDARE -->
+    <div id="blueprint-modal" class="fixed inset-0 z-50 items-center justify-center p-4 hidden" style="background:rgba(0,0,0,.5); backdrop-filter:blur(4px);">
+        <!-- Content will be injected by JS -->
+    </div>
+
+  </main>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- SIMULATOR DE DECIZIE ---
+        const adsetSelector = document.getElementById('adset-selector');
+        const recommendationOutput = document.getElementById('recommendation-output');
+        const meters = {
+            roas: { val: document.getElementById('roas-val'), bar: document.getElementById('roas-bar') },
+            stability: { val: document.getElementById('stability-val'), bar: document.getElementById('stability-bar') },
+            budget: { val: document.getElementById('budget-val'), bar: document.getElementById('budget-bar') },
+            context: { val: document.getElementById('context-val'), bar: document.getElementById('context-bar') },
+        };
+        const confidenceVal = document.getElementById('confidence-val');
+        const confidenceBar = document.getElementById('confidence-bar');
+        
+        const simulationData = {
+            asc_winner: { name: "ASC_Ghete-Iarna_V1", ingredients: { roas: { value: 3.9, percent: 95 }, stability: { value: 'Foarte Stabilă', percent: 90 }, budget: { value: 'Eficiență Maximă', percent: 100 }, context: { value: 'ASC', percent: 100 } }, confidence: 95, recommendation: { decision: { label: "SCALE", color: "green" }, reason: "Performanță excepțională și stabilă pe 7 zile. ROAS-ul de 3.9x este mult peste target, iar contextul de campanie ASC indică un potențial mare de scalare.", action: "Crește bugetul cu 25% imediat. Monitorizează frecvența pentru a preveni saturarea audienței." } },
+            test_loser: { name: "TEST_Hook-Confort_VID", ingredients: { roas: { value: 0.8, percent: 15 }, stability: { value: 'Instabilă', percent: 30 }, budget: { value: 'Buget Irosit', percent: 100 }, context: { value: 'TEST', percent: 50 } }, confidence: 65, recommendation: { decision: { label: "KILL", color: "red" }, reason: "ROAS subunitar (0.8x) după un spend semnificativ (peste 3x CPA target). Contextul de 'TEST' arată că acest unghi creativ a eșuat clar.", action: "Oprește imediat ad set-ul. Arhivează creativul și analizează de ce nu a funcționat înainte de a lansa un nou test." } },
+            rmk_borderline: { name: "RMK_14D-ATC_V2", ingredients: { roas: { value: 2.3, percent: 60 }, stability: { value: 'Fluctuantă', percent: 55 }, budget: { value: 'Date Insuficiente', percent: 40 }, context: { value: 'RMK', percent: 75 } }, confidence: 48, recommendation: { decision: { label: "WAIT", color: "amber" }, reason: "ROAS-ul este sub target-ul de 2.5x pentru remarketing, iar performanța este fluctuantă. Bugetul cheltuit este încă prea mic pentru o decizie statistic relevantă.", action: "Lasă ad set-ul să ruleze încă 24-48 de ore pentru a acumula mai multe date. Încrederea este prea mică pentru a acționa acum." } }
+        };
+
+        function updateSimulator(adsetId) {
+            const data = simulationData[adsetId];
+            if (!data) return;
+            Object.keys(meters).forEach(key => {
+                const ingredient = data.ingredients[key];
+                meters[key].val.textContent = ingredient.value;
+                meters[key].bar.style.width = `${ingredient.percent}%`;
+            });
+            
+            // Update confidence
+            if (data.confidence !== undefined) {
+                const confidence = data.confidence;
+                confidenceVal.textContent = `${confidence}%`;
+                confidenceBar.style.width = `${confidence}%`;
+                confidenceBar.textContent = `${confidence}%`;
+            }
+
+            const rec = data.recommendation;
+            recommendationOutput.innerHTML = `<div class="p-4 bg-gray-800/50 rounded-lg border-l-4 border-[color:var(--${rec.decision.color})]"><div class="font-bold text-sm text-[color:var(--${rec.decision.color})]">A. DECIZIA</div><p class="text-lg font-extrabold">${rec.decision.label}</p></div><div class="p-4 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">B. MOTIVAȚIA</div><p class="text-sm mt-1">${rec.reason}</p></div><div class="p-4 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">C. PLANUL DE ACȚIUNE</div><p class="text-sm mt-1 font-mono">${rec.action}</p></div>`;
+            recommendationOutput.classList.remove('animate-fadeIn');
+            void recommendationOutput.offsetWidth;
+            recommendationOutput.classList.add('animate-fadeIn');
+        }
+        adsetSelector.addEventListener('change', (e) => updateSimulator(e.target.value));
+        updateSimulator('asc_winner');
+
+        // --- MOTOR DE REGULI ---
+        const targetRoasSlider = document.getElementById('target-roas-slider');
+        const maxCpaSlider = document.getElementById('max-cpa-slider');
+        const targetRoasLabel = document.getElementById('target-roas-label');
+        const maxCpaLabel = document.getElementById('max-cpa-label');
+        const rulesOutput = document.getElementById('rules-evaluation-output');
+        const sampleCampaigns = [
+            { name: "ASC_Ghete_V1", roas: 3.8, cpa: 35 }, { name: "TEST_Comfort_V3", roas: 1.2, cpa: 85 },
+            { name: "RMK_14D_ATC", roas: 2.4, cpa: 42 }, { name: "DABA_All_Products", roas: 2.9, cpa: 39 },
+        ];
+        function evaluateRules() {
+            const targetRoas = parseFloat(targetRoasSlider.value);
+            const maxCpa = parseInt(maxCpaSlider.value);
+            targetRoasLabel.textContent = `${targetRoas.toFixed(1)}x`;
+            maxCpaLabel.textContent = `${maxCpa} RON`;
+            rulesOutput.innerHTML = '';
+            sampleCampaigns.forEach(c => {
+                let status, color;
+                if (c.roas >= targetRoas && c.cpa <= maxCpa) { status = "Performant"; color = "green"; } 
+                else if (c.roas < targetRoas && c.cpa > maxCpa) { status = "Problemă"; color = "red"; } 
+                else { status = "Monitorizează"; color = "amber"; }
+                rulesOutput.innerHTML += `<div class="flex justify-between items-center"><span class="font-mono">${c.name}</span><span class="font-bold text-[color:var(--${color})]">${status}</span></div>`;
+            });
+        }
+        targetRoasSlider.addEventListener('input', evaluateRules);
+        maxCpaSlider.addEventListener('input', evaluateRules);
+        evaluateRules();
+
+        // --- GENERATOR RECOMANDĂRI CREATIVE cu GEMINI API ---
+        const creativeInput = document.getElementById('creative-name-input');
+        const creativeContext = document.getElementById('creative-context-output');
+        const creativeRecs = document.getElementById('creative-recommendations-output');
+        const generateCreativeBtn = document.getElementById('generate-creative-btn');
+        
+        async function getCreativeSuggestionsFromGemini(context) {
+            generateCreativeBtn.disabled = true;
+            creativeRecs.innerHTML = `<div class="flex items-center justify-center h-full"><div class="loader w-8 h-8 rounded-full"></div></div>`;
+            
+            const apiKey = ""; // API key will be provided by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            const systemPrompt = "Ești un expert în marketing digital specializat în reclame pe Meta (Facebook/Instagram) pentru branduri de e-commerce din România. Răspunsurile tale trebuie să fie creative, concise, direct aplicabile și în limba română. Oprește-te din a folosi markdown.";
+            const userPrompt = `Generează recomandări creative pentru un ad cu următorul context: Tip campanie: ${context.tip}, Produs: ${context.produs}, Unghi de abordare: ${context.unghi}, Format: ${context.format}.`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: userPrompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            copy: { type: "ARRAY", items: {type: "STRING"} },
+                            headlines: { type: "ARRAY", items: {type: "STRING"} },
+                            visual: { type: "STRING" }
+                        },
+                    }
+                }
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) { throw new Error(`API call failed with status: ${response.status}`); }
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+                const jsonText = candidate?.content?.parts?.[0]?.text;
+                if (jsonText) {
+                    const parsedJson = JSON.parse(jsonText);
+                    creativeRecs.innerHTML = `<div class="p-3 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">Texte (Copy)</div><ul class="text-sm mt-1 list-disc list-inside">${(parsedJson.copy || []).map(c => `<li>${c}</li>`).join('')}</ul></div><div class="p-3 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">Titluri (Headlines)</div><ul class="text-sm mt-1 list-disc list-inside">${(parsedJson.headlines || []).map(h => `<li>${h}</li>`).join('')}</ul></div><div class="p-3 bg-gray-800/50 rounded-lg"><div class="font-bold text-sm text-[color:var(--muted)]">Vizual</div><p class="text-sm mt-1">${parsedJson.visual || 'N/A'}</p></div>`;
+                } else { throw new Error("No content found in API response."); }
+            } catch (error) {
+                console.error("Error calling Gemini API:", error);
+                creativeRecs.innerHTML = `<div class="p-3 bg-red-900/50 rounded-lg text-red-300">A apărut o eroare la generarea recomandărilor. Te rugăm să încerci din nou.</div>`;
+            } finally {
+                generateCreativeBtn.disabled = false;
+            }
+        }
+
+        function parseAndDisplayContext() {
+            const raw = (creativeInput.value || '').trim();
+            const parts = raw.split('_');
+            const context = { tip: parts[0] || 'N/A', produs: (parts[1] || 'produs').replace(/-/g, ' '), unghi: (parts[2] || 'calitate').replace(/-/g, ' '), format: parts[3] || 'IMG' };
+            creativeContext.textContent = JSON.stringify(context, null, 2);
+            return context;
+        }
+
+        generateCreativeBtn.addEventListener('click', () => {
+            const context = parseAndDisplayContext();
+            getCreativeSuggestionsFromGemini(context);
+        });
+        parseAndDisplayContext();
+
+        // --- INTERACTIVE ROADMAP ---
+        const timelineNav = document.getElementById('timeline-nav');
+        const roadmapContentDisplay = document.getElementById('roadmap-content-display');
+        const roadmapData = {
+            v1_1: { title: 'V1.1: Acțiuni Automate', description: 'Elimină complet munca manuală. Odată ce ai validat o recomandare, ROASIN o poate aplica direct în contul tău de Meta Ads (ex: pauzarea unui ad set, creșterea bugetului) cu un singur click.', visual: '<div class="p-4 border-2 border-dashed border-[color:var(--stroke)] rounded-lg text-center"><p class="text-sm text-[color:var(--muted)]">Mockup: O listă de ad set-uri cu un buton</p><button class="mt-2 bg-green-500 text-white font-bold py-2 px-4 rounded-lg">Aplică Recomandarea</button></div>' },
+            v1_2: { title: 'V1.2: Custom Rule Builder', description: 'Putere maximă pentru utilizatorii avansați. Vei putea crea reguli complexe, cu multiple condiții (ex: "dacă ROAS > 3 ȘI spend > 200 RON ȘI frecvența < 2, atunci..."), permițând o automatizare și mai granulară a contului.', visual: '<div class="p-4 border-2 border-dashed border-[color:var(--stroke)] rounded-lg"><p class="text-sm text-[color:var(--muted)]">Mockup: Editor de reguli</p><div class="mt-2 font-mono text-xs bg-black/50 p-2 rounded">IF <span class="text-blue-400">roas</span> > <span class="text-amber-400">3.0</span> AND <span class="text-blue-400">spend</span> > <span class="text-amber-400">200</span> ...</div></div>' },
+            v1_3: { title: 'V1.3: Simulator de Decizii', description: 'Funcția de prognoză a ROASIN. Înainte de a scala un ad set, simulatorul va folosi date istorice pentru a estima impactul probabil asupra performanței în următoarele 3 zile, ajutându-te să iei decizii mai informate.', visual: '<div class="p-4 border-2 border-dashed border-[color:var(--stroke)] rounded-lg"><p class="text-sm text-[color:var(--muted)]">Mockup: Grafic predictiv</p><div class="mt-2 h-24 w-full bg-black/50 rounded flex items-end"><div class="w-1/2 h-1/2 bg-blue-500/50"></div><div class="w-1/2 h-3/4 bg-green-500/50 border-l-2 border-dashed border-green-300"></div></div></div>' },
+            v2_0: { title: 'V2.0: Suport Multi-Platformă', description: 'ROASIN devine centrul tău de comandă pentru performance marketing. Vom integra Google Ads și TikTok Ads, permițându-ți să aplici aceeași filozofie de "decision-intelligence" pe toate canalele tale principale.', visual: '<div class="p-4 border-2 border-dashed border-[color:var(--stroke)] rounded-lg flex items-center justify-around"><span class="text-3xl">META</span><span class="text-3xl">G</span><span class="text-3xl">TT</span></div>' },
+        };
+        function updateRoadmap(version) {
+            const data = roadmapData[version];
+            if (!data) return;
+            roadmapContentDisplay.innerHTML = `<h4 class="text-lg font-bold text-[color:var(--orange)]">${data.title}</h4><p class="mt-2 text-sm text-[color:var(--muted)]">${data.description}</p><div class="mt-4">${data.visual}</div>`;
+            timelineNav.querySelectorAll('button').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.version === version);
+            });
+            roadmapContentDisplay.classList.remove('animate-fadeIn');
+            void roadmapContentDisplay.offsetWidth;
+            roadmapContentDisplay.classList.add('animate-fadeIn');
+        }
+        timelineNav.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON') { updateRoadmap(e.target.dataset.version); }
+        });
+        updateRoadmap('v1_1');
+
+        // --- BLUEPRINT ANDROMEDA ---
+        const evaluateBtn = document.getElementById('evaluate-btn');
+        const campaignTreeContainer = document.getElementById('campaign-tree');
+        const aiStatusIndicator = document.getElementById('ai-status-indicator');
+        const aiStatusText = document.getElementById('ai-status-text');
+        const blueprintModal = document.getElementById('blueprint-modal');
+        
+        const campaignBlueprintData = [
+            { name: 'stvg.CreativeLab – Purchase', type: 'campaign', roas: 1.80, cpa: 75, spend: 1200, children: [
+                { name: 'stvg.ADSET.Broad – Purchase', type: 'adset', children: [
+                    { name: 'stvg.IMG – Magazin – Alege Fara Griji', type: 'ad', roas: 0.90, cpa: 110, spend: 400 },
+                    { name: 'stvg.IMG – Metrou – Adorabile', type: 'ad', roas: 3.10, cpa: 45, spend: 500 },
+                    { name: 'stvg.IMG – Studio – Bej Cosulet', type: 'ad', roas: 1.50, cpa: 78, spend: 300 }
+                ]}
+            ]},
+            { name: 'stvg.Main – Scaler', type: 'campaign', roas: 4.20, cpa: 38, spend: 5500, children: [
+                { name: 'stvg.ADSET.Broad – Purchase', type: 'adset', children: [
+                    { name: 'stvg.IMG – Outdoor – CityWalk', type: 'ad', roas: 4.50, cpa: 35, spend: 3000 },
+                    { name: 'stvg.IMG – Lifestyle – OfficeDay', type: 'ad', roas: 3.90, cpa: 41, spend: 2500 }
+                ]}
+            ]},
+            { name: 'stvg.DABA – Catalog', type: 'campaign', roas: 3.10, cpa: 45, spend: 2800, children: [
+                { name: 'stvg.ADSET.AllProducts', type: 'adset', children: [ { name: 'stvg.AD.AllProducts', type: 'ad', roas: 3.10, cpa: 45, spend: 2800 } ] },
+                 { name: 'stvg.ADSET.CategorySets', type: 'adset', children: [
+                    { name: 'stvg.AD.Ghete-Iarna', type: 'ad', roas: 4.10, cpa: 33, spend: 1200},
+                    { name: 'stvg.AD.Botine', type: 'ad', roas: 2.90, cpa: 48, spend: 800},
+                    { name: 'stvg.AD.Cizme', type: 'ad', roas: 2.20, cpa: 55, spend: 800},
+                 ] }
+            ]},
+             { name: 'stvg.Retarget – Warm', type: 'campaign', roas: 5.50, cpa: 25, spend: 800, children: [
+                { name: 'stvg.ADSET.RTG.7-14d.ViewContent+ATC', type: 'adset', children: [
+                    { name: 'stvg.IMG – Reminder – Schimb Gratuit', type: 'ad', roas: 5.80, cpa: 22, spend: 400 },
+                    { name: 'stvg.IMG – Reminder – Ultime Perechi', type: 'ad', roas: 5.20, cpa: 28, spend: 400 }
+                ]}
+            ]},
+        ];
+
+        let flatBlueprintDataStore = {};
+        function flattenData(items, parentPath = '') {
+            items.forEach((item, index) => {
+                const path = parentPath ? `${parentPath}-${index}` : `${index}`;
+                item.path = path;
+                flatBlueprintDataStore[path] = item;
+                if (item.children) {
+                    flattenData(item.children, path);
+                }
+            });
+        }
+        flattenData(campaignBlueprintData);
+
+        function getDecision(item) {
+            let decision = { label: "WAIT", color: "amber", reason: "Performanță medie. Necesită mai multe date pentru o decizie clară.", actionPlan: "Menține bugetul actual. Monitorizează CPA și ROAS în următoarele 48 de ore." };
+            if(item.name.includes("Metrou – Adorabile") && item.type === 'ad') {
+                decision = { label: "PROMOVEAZĂ", color: "purple", reason: "Creativ cu performanță excepțională în Creative Lab (ROAS > 3, CPA sub target).", actionPlan: "Mută acest creativ într-o campanie de scalare (stvg.Main - Scaler) cu un buget inițial de 200 RON/zi." };
+            } else if (item.roas > 2.8) {
+                decision = { label: "SCALE", color: "green", reason: `ROAS de ${item.roas.toFixed(2)}x este profitabil și peste target.`, actionPlan: `Crește bugetul cu 20%. Monitorizează frecvența pentru a evita saturarea.` };
+            } else if (item.roas < 1.5) {
+                decision = { label: "KILL", color: "red", reason: `ROAS subunitar (${item.roas.toFixed(2)}x) și CPA de ${item.cpa} RON. Nu este profitabil.`, actionPlan: "Oprește imediat. Analizează audiența și creativul pentru a înțelege cauza eșecului." };
+            }
+            item.reason = decision.reason;
+            item.actionPlan = decision.actionPlan;
+            return decision;
+        }
+
+        function renderBlueprintNode(item, level = 0, isEvaluation = false) {
+            const itemDiv = document.createElement('div');
+            const typeClass = `type-${item.type}`;
+            itemDiv.className = `blueprint-item flex justify-between items-center transition-all duration-300 py-2 rounded ${typeClass}`;
+            const nameSpan = document.createElement('span');
+            nameSpan.style.paddingLeft = `${level * 1.5}rem`;
+            nameSpan.textContent = item.name.replace(/–/g, '– ');
+            itemDiv.appendChild(nameSpan);
+            const resultsContainer = document.createElement('div');
+            resultsContainer.className = 'results-container text-xs';
+            itemDiv.appendChild(resultsContainer);
+            
+            if (isEvaluation && item.roas !== undefined) {
+                const decision = getDecision(item);
+                resultsContainer.classList.add('opacity-0', 'transition-opacity', 'duration-500');
+                resultsContainer.innerHTML = `
+                    <span class="inline-block w-24 text-right"><span class="text-[color:var(--muted)]">ROAS:</span> <span class="font-bold ${item.roas > 2.8 ? 'text-green-400' : ''}">${item.roas.toFixed(2)}x</span></span>
+                    <span class="inline-block w-24 text-right"><span class="text-[color:var(--muted)]">CPA:</span> <span class="font-bold">${item.cpa} RON</span></span>
+                    <span class="inline-block w-28 text-right"><span class="text-[color:var(--muted)]">Spend:</span> <span class="font-bold">${item.spend} RON</span></span>
+                    <span class="inline-block w-28 text-right">
+                        <button data-path="${item.path}" class="blueprint-details-btn ml-4 text-xs font-bold py-1 px-2 rounded-full text-white cursor-pointer" style="background-color: var(--${decision.color})">${decision.label}</button>
+                    </span>
+                `;
+            }
+            campaignTreeContainer.appendChild(itemDiv);
+            if (item.children) {
+                item.children.forEach(child => renderBlueprintNode(child, level + 1, isEvaluation));
+            }
+        }
+
+        function displayInitialBlueprint() {
+             campaignTreeContainer.innerHTML = '';
+             aiStatusText.textContent = 'În așteptare';
+             aiStatusIndicator.style.backgroundColor = 'var(--muted)';
+             aiStatusIndicator.classList.remove('animate-pulse');
+             campaignBlueprintData.forEach(campaign => renderBlueprintNode(campaign, 0, false));
+        }
+
+        evaluateBtn.addEventListener('click', () => {
+            evaluateBtn.disabled = true;
+            campaignTreeContainer.innerHTML = '';
+            campaignBlueprintData.forEach(campaign => renderBlueprintNode(campaign, 0, true));
+            aiStatusText.textContent = 'Analizez...';
+            aiStatusIndicator.style.backgroundColor = 'var(--amber)';
+            aiStatusIndicator.classList.add('animate-pulse');
+            const items = campaignTreeContainer.querySelectorAll('.blueprint-item');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                   item.classList.add('scanning');
+                   const result = item.querySelector('.results-container');
+                   if (result) { result.classList.remove('opacity-0'); result.classList.add('opacity-100'); }
+                   setTimeout(() => item.classList.remove('scanning'), 400);
+                   if(index === items.length - 1) {
+                        aiStatusText.textContent = 'Analiză Completă';
+                        aiStatusIndicator.style.backgroundColor = 'var(--green)';
+                        aiStatusIndicator.classList.remove('animate-pulse');
+                        evaluateBtn.disabled = false;
+                   }
+                }, index * 100);
+            });
+        });
+        
+        campaignTreeContainer.addEventListener('click', (e) => {
+            const btn = e.target.closest('.blueprint-details-btn');
+            if (!btn) return;
+            const item = flatBlueprintDataStore[btn.dataset.path];
+            if (item) {
+                const decision = getDecision(item);
+                blueprintModal.innerHTML = `
+                <div class="glass rounded-2xl w-full max-w-lg p-6 relative animate-fadeIn">
+                    <button id="close-blueprint-modal" class="absolute top-4 right-4 text-2xl text-[color:var(--muted)] hover:text-white">&times;</button>
+                    <h3 class="text-xl font-bold mb-1">${item.name}</h3>
+                    <div class="mt-6 space-y-4">
+                        <div class="p-4 bg-gray-800/50 rounded-lg border-l-4" style="border-color: var(--${decision.color})">
+                            <div class="font-bold text-sm" style="color: var(--${decision.color})">DECIZIA</div>
+                            <p class="text-lg font-extrabold">${decision.label}</p>
+                        </div>
+                        <div class="p-4 bg-gray-800/50 rounded-lg">
+                            <div class="font-bold text-sm text-[color:var(--muted)]">MOTIVAȚIA (Reason)</div>
+                            <p class="text-sm mt-1">${item.reason}</p>
+                        </div>
+                        <div class="p-4 bg-gray-800/50 rounded-lg">
+                            <div class="font-bold text-sm text-[color:var(--muted)]">PLAN DE ACȚIUNE</div>
+                            <p class="text-sm mt-1 font-mono">${item.actionPlan}</p>
+                        </div>
+                    </div>
+                </div>`;
+                blueprintModal.classList.remove('hidden');
+                blueprintModal.classList.add('flex');
+                document.getElementById('close-blueprint-modal').addEventListener('click', () => {
+                    blueprintModal.classList.add('hidden');
+                    blueprintModal.classList.remove('flex');
+                });
+            }
+        });
+        blueprintModal.addEventListener('click', (e) => { if (e.target === blueprintModal) { blueprintModal.classList.add('hidden'); blueprintModal.classList.remove('flex'); } });
+        
+        displayInitialBlueprint();
+    });
+  </script>
+</body>
+</html>
+
